@@ -1,0 +1,63 @@
+#bg{
+    background-image: url('https://mperumpy.sirv.com/Images/recipes3.jpeg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.navbar{
+    background-color: rgba(0,0,0,0.8);
+}
+.jumbotron{
+    background-color: rgba(0,0,0,0.5);
+}
+.jumbotron h3,em,small{
+    color: aliceblue;
+}
+#search-bar{
+    margin-top: 100px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+.panel{
+    background-color: aliceblue;
+}
+#search{
+    background-color: rgb(178, 175, 167);
+    
+}
+.input-group-addon{
+    border-color: rgb(106, 159, 199);
+}
+.pagination > li:first-child > a, .pagination > li:last-child > a{
+    border-radius: 0px;
+}
+.Home,.Dashboard,.Review,.AddRecipe,.EditRecipe,.AddCategory,.EditCategory,.Register,.Login,.NotFound{
+    padding-top: 65px;
+  }
+hr{
+    margin-top: 4px;
+    margin-bottom: 2px;
+    border-top: unset;
+}
+.jumbotron.review{
+    background-color: rgb(122, 171, 211);
+}
+.dropdown-menu{
+    background-color: rgb(122, 171, 211);
+}
+.jumbotron ess{
+    color: #d37613
+}
+.Login,.Register {
+    width:400px;
+    margin:0 auto;
+  }
+table{
+    margin-top: 15px;
+}
+#pagination{
+    padding-left: 100px
+}
+#no-recipes{
+    margin-top: 15px;
+}
