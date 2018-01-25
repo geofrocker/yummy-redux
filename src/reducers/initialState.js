@@ -1,4 +1,6 @@
 export default{
-  message:'',
-  status:''
+  registerMessage:'',
+  status:'',
+  loginMessage:'',
+  publicRecipes:[]
 }
