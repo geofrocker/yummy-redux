@@ -1,4 +1,4 @@
-# Yummy-Recipes web app without database
+# Yummy-Recipes web app with react-redux
 ## Description
 Yummy recipies is a web app built in python using flask framework
   * A user can see the available recipes
