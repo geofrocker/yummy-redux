@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import * as registerActions from '../../actions/registerAction'
+import * as registerActions from '../../actions/registerActions'
 
 class Register extends Component {
 
     constructor(props){
         super(props);
         this.state={
-            userData:Object.assign({}, this.props.userData),
+            userData:{username:'', password:'',name:'',email:'',cpassword:''},
             message:'',
             color:'col-xs-11 alert alert-danger',
         }
@@ -24,18 +24,26 @@ class Register extends Component {
     Register the user
     */
     componentWillReceiveProps(nextProps){
-        this.setState({message:nextProps.message})
         if(nextProps.status){
             this.setState({
                 color:'col-xs-11 alert alert-success',
-            })    
+                message:nextProps.message,
+                userData:{username:'', password:'',name:'',email:'',cpassword:''}
+            })
+            this.props.history.push('/login')
+        }else{
+            this.setState({
+                color:'col-xs-11 alert alert-danger',
+                message:nextProps.message,
+                userData:{password:'',cpassword:''}
+            })
         }
     }
     regUser = (e) =>{
         e.preventDefault();
-        /*
-        Make an api call
-        */
+        this.setState({
+            color:'col-xs-11 alert alert-danger'
+        })
         if(this.state.userData.cpassword !== this.state.userData.password){
             return this.setState({
                 message: 'Passwords do not match',
@@ -43,7 +51,6 @@ class Register extends Component {
             })
         }
         this.props.actions.register(this.state.userData);
-        this.props.reset;
        }
     render(){
         
@@ -88,20 +95,19 @@ class Register extends Component {
 }
 Register.propTypes = {
     message: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
 }
 
 function mapStateToProps(state, ownProps){
     return {
-      message:state.message.message,
-      status:state.message.status
+      message:state.registerMessage,
+      status:state.registerMessage.status
     }
-  }
+}
   
-  function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch){
     return{
-      actions: bindActionCreators(registerActions, dispatch)
+        actions: bindActionCreators(registerActions, dispatch)
     }
-  }
-  export default connect(mapStateToProps, mapDispatchToProps) (Register);
+}
+export default connect(mapStateToProps, mapDispatchToProps) (Register);
   
