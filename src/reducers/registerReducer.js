@@ -4,12 +4,12 @@ export default function registerReducer(state = initialState, action){
   switch(action.type){
     case types.REGISTER_SUCCESS:
       return {
-        message:  action.message,
+        registerMessage:  action.registerMessage,
         status: action.status
       }
     case types.REGISTER_FAILS:
       return {
-        message:action.message
+        registerMessage:action.registerMessage
       }
     default:
       return state;
