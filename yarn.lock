@@ -5316,6 +5316,12 @@ react-scripts@1.1.0:
   optionalDependencies:
     fsevents "1.1.2"
 
+react-since@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-since/-/react-since-1.1.0.tgz#8f3d20fbf6b2dc6f9970677a8d6c57992952c3df"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-transition-group@^2.0.0, react-transition-group@^2.2.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.2.1.tgz#e9fb677b79e6455fd391b03823afe84849df4a10"
