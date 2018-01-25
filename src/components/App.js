@@ -2,29 +2,27 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Navbar, MenuItem, NavDropdown, Nav} from 'react-bootstrap';
 // Import custom components
-//import Home from './home'
+import Home from './home/Home'
 import Register from './register/Register'
-// import Login from './login'
+import Login from './login/Login'
 // import Dashboard from './dashboard'
 // import AddRecipe from './add_recipe'
 // import EditRecipe from './edit_recipe'
 // import AddCategory from './add_category'
 // import EditCategory from './edit_category'
 // import Review from './Review'
-// import NotFound from './NotFound'
+import NotFound from './notFound/NotFound'
 
 
 class App extends Component {
     constructor(props){
         super(props)
         this.state = {
-           username:localStorage.getItem('isLoggedIn'),
            user:localStorage.getItem('user'),
           };
     }
     handlelogout = (e) =>{
         localStorage.clear()
-        this.setState ({username:null})
         window.location.reload()
 
     }
@@ -62,15 +60,15 @@ class App extends Component {
                     </Navbar>
                     <div className="container">
                     <Switch>
-                        {/* <Route exact path="/" component={Home}/> */}
+                        <Route exact path="/" component={Home}/>
                         <Route path="/register" component={Register}/>
-                        {/* <Route path="/login" component={Login}/>
-                        <Route path="/dashboard" component={Dashboard}/>
+                        <Route path="/login" component={Login}/>
+                        {/* <Route path="/dashboard" component={Dashboard}/>
                         <Route path="/add_recipe" component={AddRecipe}/>
                         <Route path="/edit_recipe/:recipe_id" component={EditRecipe} />
                         <Route path="/add_category" component={AddCategory} />
                         <Route path="/edit_category/:cat_id" component={EditCategory} />
-                        <Route path="/recipe/:recipe_id" component={Review} />
+                        <Route path="/recipe/:recipe_id" component={Review} /> */}
                         <Route path="*" exact={true} component={NotFound} /> */}
                     </Switch>
                     </div>
