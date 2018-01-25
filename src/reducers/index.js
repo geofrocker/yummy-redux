@@ -1,8 +1,13 @@
 import {combineReducers} from 'redux'
-import message from './registerReducer'
+import registerMessage from './registerReducer'
+import loginMessage from './loginReducer'
+import publicRecipes from './publicRecipesReducer'
 
 const rootReducer = combineReducers({
-  message:message
+  registerMessage:registerMessage,
+  loginMessage:loginMessage,
+  publicRecipes:publicRecipes
+
 });
 
 export default rootReducer;
