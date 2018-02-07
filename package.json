@@ -4,21 +4,33 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "eslint": "^4.17.0",
+    "loaders.css": "^0.1.2",
+    "lodash": "^4.17.5",
+    "query-string": "^5.0.1",
     "react": "^16.2.0",
-    "react-bootstrap": "^0.32.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
+    "react-loaders": "^3.0.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
     "react-since": "^1.1.0",
     "redux": "^3.7.2",
     "redux-immutable-state-invariant": "^2.1.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "toastr": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.6.1"
   }
 }
