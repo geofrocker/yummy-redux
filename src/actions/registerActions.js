@@ -1,20 +1,24 @@
-import * as types from './actionTypes'
-import  url, { http } from '../config'
+import * as types from './actionTypes';
+import url, { http } from '../config';
+import { beginAjaxCall } from './ajaxStatusActions';
 
-export function registerSuccess(message, status){
-  return{ type: types.REGISTER_SUCCESS, registerMessage:message,status}
+export function registerSuccess(message, status) {
+  return { type: types.REGISTER_SUCCESS, message, status };
 }
-export function registerFails(message){
-  return{ type: types.REGISTER_FAILS, registerMessage:message}
+export function registerFails(message) {
+  return { type: types.REGISTER_FAIL, message };
 }
 
-export function register(userData){
-  return function(dispatch){
-    return http.post(url+'auth/register',userData)
-        .then((response)=>{
-          dispatch(registerSuccess(response.data.Message, response.data.status));
-      }).catch(xhr => {
-        dispatch(registerFails(xhr.response.data.Message));
+export function register(userData) {
+  return function (dispatch) {
+    dispatch(beginAjaxCall());
+    return http.post(`${url}auth/register`, userData)
+      .then((response) => {
+        dispatch(registerSuccess(response.data.Message, response.data.status));
+      }).catch((xhr) => {
+        // console.log(xhr)
+        dispatch(registerFails(xhr));
+        throw (xhr);
       });
-  }
+  };
 }
