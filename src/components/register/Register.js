@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as registerActions from '../../actions/registerActions'
+import toastr from 'toastr'
+import {Redirect} from 'react-router-dom'
 
 class Register extends Component {
 
@@ -12,32 +14,16 @@ class Register extends Component {
             userData:{username:'', password:'',name:'',email:'',cpassword:''},
             message:'',
             color:'col-xs-11 alert alert-danger',
+            redirect:false
         }
+        console.log(this.props)
     }
+
     handleChange = (event) => {
         const field = event.target.name
         let userData = this.state.userData
         userData[field] = event.target.value
         this.setState({ userData })
-    }
-    /*
-    Register the user
-    */
-    componentWillReceiveProps(nextProps){
-        if(nextProps.status){
-            this.setState({
-                color:'col-xs-11 alert alert-success',
-                message:nextProps.message,
-                userData:{username:'', password:'',name:'',email:'',cpassword:''}
-            })
-            this.props.history.push('/login')
-        }else{
-            this.setState({
-                color:'col-xs-11 alert alert-danger',
-                message:nextProps.message,
-                userData:{password:'',cpassword:''}
-            })
-        }
     }
     regUser = (e) =>{
         e.preventDefault();
@@ -50,11 +36,32 @@ class Register extends Component {
                 color:'col-xs-11 alert alert-danger'
             })
         }
-        this.props.actions.register(this.state.userData);
-       }
+        this.props.actions.register(this.state.userData)
+        .then((response) =>{
+            return this.setState(() =>{
+                toastr.success('You are now registered')
+                return {
+                    color:'col-xs-11 alert alert-success',
+                    userData:{username:'', password:'',name:'',email:'',cpassword:'',},
+                    redirect:true
+                }
+                
+            })
+        }).catch(error =>{
+            return this.setState(() =>{
+                return{
+                    color:'col-xs-11 alert alert-danger',
+                    message:error.response?error.response.data.Message:'An Error occurred, Try again',
+                    userData:{password:'',cpassword:''}
+                };
+            });
+        });
+    }
     render(){
-        
-        const {userData, message, color} = this.state
+        const {userData, message, color,redirect} = this.state
+        if(redirect){
+            return <Redirect to="/login"/>
+        }
         return (
         <div className="Register">
             <h1>Register Here</h1>
@@ -99,8 +106,8 @@ Register.propTypes = {
 
 function mapStateToProps(state, ownProps){
     return {
-      message:state.registerMessage,
-      status:state.registerMessage.status
+      message:state.auth.message,
+      status:state.auth.status
     }
 }
   

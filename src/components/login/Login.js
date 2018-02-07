@@ -3,19 +3,20 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as LoginActions from '../../actions/loginActions'
+import toastr from 'toastr'
+import {Redirect} from 'react-router-dom'
 
 class Login extends Component {
-  constructor(props){
-    super(props);
+  constructor(props, context){
+    super(props, context)
     this.state={
         userData:{username:'',password:''},
-        message:''
+        message:'',
+        redirect:false
     }
+    
   }
 
-  /*
-  update the state after the user has entered the username and password
-  */
   handleChange = (event) => {
     const field = event.target.name
     let userData = this.state.userData
@@ -24,18 +25,26 @@ class Login extends Component {
   }
     
   loginUser = (e) =>{
-    localStorage.setItem('isLoggedIn',false)
     e.preventDefault();
-    this.props.actions.login(this.state.userData);
-    console.log(localStorage.getItem('isLoggedIn'))
-  }
-  componentWillReceiveProps(nextProps){
-    this.setState({message:nextProps.message, userData:{username:'', password:''}}) 
-    console.log(nextProps)
-  }
+    this.props.actions.login(this.state.userData)
+    .then(() =>{
+      toastr.success('You are now logged In')
+      this.setState({redirect:true})
+    })
+    .catch(xhr=>{
+      return this.setState(() =>{
+        return {
+          message:xhr.response?xhr.response.data.error:'An Error occurred, Try again',
+          userData:{username:'', password:''}
+          }
+    })
+  })}
 
   render(){
-      const {userData, message}=this.state
+      const {redirect,userData, message}=this.state
+      if(redirect){
+        return <Redirect to="/" />
+      }
       return (
           <div className="Login">
               <h1>Please sign in</h1>
@@ -66,13 +75,16 @@ class Login extends Component {
       );
   }
 }
+Login.contextType ={
+  router:PropTypes.object
+}
 Login.propTypes = {
   message: PropTypes.string.isRequired,
 }
 
 function mapStateToProps(state, ownProps){
   return {
-    message:state.loginMessage
+    message:state.auth.message
   }
 }
 

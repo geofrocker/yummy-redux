@@ -1,18 +1,19 @@
-import * as types from '../actions/actionTypes'
-import initialState from './initialState'
-export default function registerReducer(state = initialState, action){
-  switch(action.type){
+import * as types from '../actions/actionTypes';
+import initialState from './initialState';
+
+export default function registerReducer(state = initialState.auth, action) {
+  switch (action.type) {
     case types.REGISTER_SUCCESS:
       return {
-        registerMessage:  action.registerMessage,
-        status: action.status
-      }
-    case types.REGISTER_FAILS:
+        ...state.message,
+        message: action.message,
+      };
+    case types.REGISTER_FAIL:
       return {
-        registerMessage:action.registerMessage
-      }
+        ...state.message,
+        message: action.message,
+      };
     default:
       return state;
-
   }
 }
