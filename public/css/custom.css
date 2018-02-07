@@ -45,9 +45,7 @@ hr{
 .dropdown-menu{
     background-color: rgb(122, 171, 211);
 }
-.jumbotron ess{
-    color: #d37613
-}
+
 .Login,.Register {
     width:400px;
     margin:0 auto;
@@ -60,4 +58,13 @@ table{
 }
 #no-recipes{
     margin-top: 15px;
+}
+.fa-pulse{
+    color:#a5ccef
+}
+#loader{
+    padding: 50px
+}
+.modal-content{
+    margin-top: 118px
 }
