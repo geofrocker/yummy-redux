@@ -62,6 +62,9 @@ class Register extends Component {
         if(redirect){
             return <Redirect to="/login"/>
         }
+        if (localStorage.getItem('isLoggedIn')) {
+            return <Redirect to="/dashboard" />;
+        }
         return (
         <div className="Register">
             <h1>Register Here</h1>

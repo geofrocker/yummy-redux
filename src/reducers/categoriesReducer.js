@@ -7,6 +7,7 @@ export default function categoriesReducer(state = initialState.categories, actio
       return {
         ...state,
         categories: action.data.Category_list,
+        page: action.data.page,
         total_pages: action.data.total_pages,
         has_next: action.data.has_next,
         has_prev: action.data.has_prev,
@@ -18,6 +19,46 @@ export default function categoriesReducer(state = initialState.categories, actio
         ...state,
         message: action.message,
         categories: [],
+      };
+    case types.LOAD_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        category: action.data,
+      };
+    case types.LOAD_CATEGORY_FAIL:
+      return {
+        ...state,
+        message: action.message,
+      };
+    case types.ADD_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        categories: state.categories,
+      };
+    case types.ADD_CATEGORY_FAIL:
+      return {
+        ...state,
+        message: action.message,
+      };
+    case types.UPDATE_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        categories: state.categories,
+      };
+    case types.UPDATE_CATEGORY_FAIL:
+      return {
+        ...state,
+        message: action.message,
+      };
+    case types.DELETE_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        categories: state.categories,
+      };
+    case types.DELETE_CATEGORY_FAIL:
+      return {
+        ...state,
+        message: action.message,
       };
     default:
       return state;

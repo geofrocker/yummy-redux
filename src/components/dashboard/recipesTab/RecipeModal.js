@@ -6,7 +6,7 @@ const Categories = props =>
 
 const RecipeModal = (props) => {
   const {
-    modalTitle, selected, recipeData, handleChange, message, categories,
+    modalTitle, selected, recipeData, handleChange, categories,
   } = props;
   return (
     <Modal show={props.show} onHide={props.handleClose}>
@@ -15,10 +15,6 @@ const RecipeModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={modalTitle === 'Add Recipe' ? props.addRecipe : props.handleRecipeUpdate} id="recipe-form">
-          {message.indexOf(',') > -1
-            ? <center><div className="label label-danger col-sm-12">{message}</div></center>
-            : <div />
-        }
           <div className="form-group">
             <input type="text" className="form-control" value={recipeData.title} onChange={handleChange} placeholder="Title" id="title" required />
           </div>

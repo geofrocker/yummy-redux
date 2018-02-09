@@ -136,3 +136,4 @@ Home.propTypes = {
   })
 
   export default connect(mapStateToProps, mapDispatchToProps) (Home);
+  

@@ -2,12 +2,12 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import * as recipesActions from '../../actions/recipesActions'
-import url from '../../config'
+import * as recipesActions from '../../../actions/recipesActions'
+import url from '../../../config'
 import { Table } from 'react-bootstrap';
-import RecipeTableRows from '../dashboard/RecipeTableRows'
-import Pagination from '../dashboard/Pagination'
-import RecipeModal from '../dashboard/RecipeModal'
+import RecipeTableRows from './RecipeTableRows'
+import Pagination from './Pagination'
+import RecipeModal from './RecipeModal'
 import toastr from 'toastr';
 import { Redirect } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ class RecipesTable extends Component{
   constructor(props){
     super(props)
     this.state = {showMessage:false, q:'', page:1, url: url+'myrecipes?page=1',show: false,selected:'',modalTitle:'Add Recipe',recipeId:'',
-    recipeData:{title:'',category:'',ingredients:'',steps:'',status:'', redirect: false}
+    recipeData:{title:'',category:'',ingredients:'',steps:'',status:''},redirect: false
     };
   }
   componentWillMount(){
@@ -23,7 +23,7 @@ class RecipesTable extends Component{
     .catch(xhr =>{
       this.setState({ redirect: true });
     })
-    this.props.actions.loadCategories(`${url}category`)
+    this.props.actions.loadCategories(`${url}category?page=1`)
     .catch(xhr =>{
       this.setState({ redirect: true });
     })
@@ -52,19 +52,16 @@ class RecipesTable extends Component{
       this.handleClose()
     }).catch(xhr =>{
       toastr.error(this.props.message)
-      this.setState({ redirect: true });
     })
   }
 
   deleteHandler = (id,e) =>{
-    console.log(id)
     this.props.actions.deleteRecipe(id)
     .then(() =>{
       toastr.success('Recipe Deleted Successfully')
       this.props.actions.loadRecipes(`${url}myrecipes?page=${this.props.page}`)
     }).catch(() =>{
       toastr.error(this.props.message)
-      this.setState({ redirect: true });
     })
   }
 

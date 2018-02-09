@@ -30,6 +30,7 @@ class Login extends Component {
     .then(() =>{
       toastr.success('You are now logged In')
       this.setState({redirect:true})
+      window.location.reload()
     })
     .catch(xhr=>{
       return this.setState(() =>{
@@ -43,7 +44,10 @@ class Login extends Component {
   render(){
       const {redirect,userData, message}=this.state
       if(redirect){
-        return <Redirect to="/" />
+        return <Redirect to="/dashboard" />
+      }
+      if (localStorage.getItem('isLoggedIn')) {
+        return <Redirect to="/dashboard" />;
       }
       return (
           <div className="Login">

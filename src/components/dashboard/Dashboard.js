@@ -1,17 +1,19 @@
 import React from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
-import Categories from './Categories';
-import RecipesTable from './RecipesTable';
+import { Redirect } from 'react-router-dom';
+import Categories from './categoriesTab/CategoriesTable';
+import RecipesTable from './recipesTab/RecipesTable';
 
-const Dashboard = (props) => {
+
+const Dashboard = () => {
   if (!localStorage.getItem('isLoggedIn')) {
-    props.history.push('/login');
+    return <Redirect to="/login" />;
   }
   return (
     <div className="Dashboard">
       <div className="panel panel-default">
         <div className="panel-body">
-          <Tabs defaultActiveKey={1} animation onSelect={this.handleCategoryPagination} id="myContent">
+          <Tabs defaultActiveKey={1} animation id="myContent">
             <Tab eventKey={1} title="Recipes">
               {/* <ErrorBoundaryAppContainer> */}
               <RecipesTable />
@@ -19,6 +21,7 @@ const Dashboard = (props) => {
             </Tab>
             <Tab eventKey={2} title="Categories">
               <Categories />
+
             </Tab>
           </Tabs>
         </div>
