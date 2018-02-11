@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const url = 'http://yummy-api.herokuapp.com/';
+export const url = 'https://yummy-api.herokuapp.com/';
 
 export const http = axios.create({
   headers: {
