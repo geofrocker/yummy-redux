@@ -19,3 +19,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+public/css/bootstrap.min.css
+public/css/mdb.min.css
+yarn.lock

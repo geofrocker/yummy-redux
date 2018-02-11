@@ -53,9 +53,7 @@ hr{
 table{
     margin-top: 15px;
 }
-#pagination{
-    padding-left: 100px
-}
+
 #no-recipes{
     margin-top: 15px;
 }
@@ -67,4 +65,8 @@ table{
 }
 .modal-content{
     margin-top: 118px
+}
+
+#recipeCard{
+   font-size: 14px
 }

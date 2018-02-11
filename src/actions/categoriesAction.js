@@ -94,7 +94,7 @@ export function deleteCategory(id) {
       .then((response) => {
         dispatch(deleteCategorySuccess());
       }).catch((xhr) => {
-        dispatch(deleteCategoryFail(xhr.response.data.Message));
+        dispatch(deleteCategoryFail(xhr.response.data.message));
         throw (xhr);
       });
   };

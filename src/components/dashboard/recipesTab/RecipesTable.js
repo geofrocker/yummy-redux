@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as recipesActions from '../../../actions/recipesActions'
 import url from '../../../config'
-import { Table } from 'react-bootstrap';
 import RecipeTableRows from './RecipeTableRows'
 import Pagination from './Pagination'
 import RecipeModal from './RecipeModal'
@@ -35,11 +34,10 @@ class RecipesTable extends Component{
     .then(() =>{
       toastr.success('Recipe Created Successfully')
       this.setState({recipeData:{title:'',category:'',ingredients:'',steps:'',status:''}})
-      this.props.actions.loadRecipes(`${url}myrecipes?page=${this.props.page}`)
+      this.props.actions.loadRecipes(`${url}myrecipes?page=1`)
       this.handleClose()
     }).catch(xhr =>{
       toastr.error(this.props.message)
-      this.setState({ redirect: true });
     })
   }
   handleRecipeUpdate = (e) => {
@@ -144,9 +142,9 @@ class RecipesTable extends Component{
     }
     return(
       <div>
-        <h3>My recipes <a onClick={this.handleShow} className="btn btn-success pull-right"> Add Recipe</a>
+        <h3>&nbsp;<a onClick={this.handleShow} className="btn btn-success pull-right"> Add Recipe</a>
         <RecipeModal handleClose={this.handleClose} show={this.state.show} selected={this.state.selected} recipeData={this.state.recipeData} message={this.props.message} categories={this.props.categories} modalTitle={this.state.modalTitle} handleChange={this.handeChange} handleRecipeUpdate={this.handleRecipeUpdate} addRecipe={this.addRecipe}/>
-            <div className="col-xs-12 col-sm-6 pull-right">
+            <div className="col-xs-7 col-sm-4 pull-right">
                 <div className="input-group mb-2 mb-sm-0">
                     <div className="input-group-addon">Search</div>
                     <input type="text" className="form-control" onChange={this.handleRecipeSearch} onKeyUp={this.handleRecipeSearch} placeholder="Enter your search key words here!" />
@@ -158,30 +156,15 @@ class RecipesTable extends Component{
           :<div>
             {this.props.recipes.length > 0
               ? <div>
-                  <Table striped bordered condensed hover responsive>
-                      <tbody id="tbody">
-                          <tr>
-                              <th>ID</th>
-                              <th>Title</th>
-                              <th>Category</th>
-                              <th>Author</th>
-                              <th>Status</th>
-                              <th>Date</th>
-                              <th></th>
-                              <th></th>
-                          </tr>
-
-                          {this.props.recipes.map((recipe, index) =>
-                              <RecipeTableRows id={index + 1} key={recipe.recipe_id}{...recipe} deleteHandler={this.deleteHandler} handleEditData={this.handleEditData} />
-                          )}
-                      </tbody>
-                  </Table>
+                  {this.props.recipes.map((recipe, index) =>
+                      <RecipeTableRows id={index + 1} key={recipe.recipe_id}{...recipe} deleteHandler={this.deleteHandler} handleEditData={this.handleEditData} />
+                  )}
                   <Pagination recipeData={this.props} nextPage={this.nextPage} previousPage={this.previousPage}/>
                 </div>
               
-              :<div className="alert alert-info col-sm-8" id="no-recipes">
-                    <p>No recipes at the moment!<a onClick={this.handleShow} className="btn btn-primary pull-right"> Add Recipe</a></p>
-              </div>
+              : <div className="alert alert-info col-sm-8" id="no-recipes">
+                  <p>No recipes at the moment!<a onClick={this.handleShow} className="btn btn-primary pull-right"> Add Recipe</a></p>
+                </div>
             }
           </div>
         }

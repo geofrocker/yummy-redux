@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { url } from '../../../config';
 import { loadCategories, addCategory, loadCategory, updateCategory, deleteCategory} from '../../../actions/categoriesAction';
+import { loadRecipes } from '../../../actions/recipesActions'
 import { Table } from 'react-bootstrap';
 import Pagination from './Pagination';
 import CategoryTableRows from './CategoryTableRows';
@@ -47,6 +48,8 @@ class CategoriesTable extends Component {
     .then(() =>{
       toastr.success('Category Deleted Successfully')
       this.props.loadCategories(`${url}category?page=${this.props.page}`)
+      let localurl = url +'myrecipes?page=1'
+      this.props.loadRecipes(localurl)
     }).catch(() =>{
       toastr.error(this.props.message)
     })
@@ -84,7 +87,7 @@ class CategoriesTable extends Component {
     this.props.addCategory(`${url}category`,this.state.catData)
     .then(() =>{
       toastr.success('Category Created Successfully')
-      this.props.loadCategories(`${url}category?page=${this.props.page}`)
+      this.props.loadCategories(`${url}category?page=1`)
       this.handleClose()
     }).catch(xhr =>{
       toastr.error(this.props.message)
@@ -133,10 +136,10 @@ class CategoriesTable extends Component {
 }
   render() {
     return (
-      <div>
-        <h3>My categories <a onClick={this.handleShow} className="btn btn-success pull-right"> Add Category</a>
+      <div className="col-md-9">
+        <h3>&nbsp;<a onClick={this.handleShow} className="btn btn-success pull-right"> Add Category</a>
         <CategoryModal handleClose={this.handleClose} catData = {this.state.catData} show={this.state.show} message={this.props.message} modalTitle={this.state.modalTitle} handleChange={this.handleChange} handleCategoryUpdate={this.handleCategoryUpdate} addCategory={this.addCategory}/>
-          <div className="col-xs-12 col-sm-6 pull-right">
+          <div className="col-xs-7 col-sm-4 pull-right">
             <div className="input-group mb-2 mb-sm-0">
               <div className="input-group-addon">Search</div>
               <input type="text" className="form-control" onChange={this.handleCategorySearch} onKeyUp={this.handleCategorySearch} placeholder="Enter your search key words here!" />
@@ -148,17 +151,15 @@ class CategoriesTable extends Component {
           : <div>
             {this.state.categories.length > 0
               ? <div>
-                <Table striped bordered condensed hover responsive>
+                <Table table table-striped responsive>
                   <tbody id="tbody">
                     <tr>
                       <th>ID</th>
                       <th>Title</th>
                       <th>Category</th>
                       <th>Author</th>
-                      <th>Status</th>
                       <th>Date</th>
-                      <th />
-                      <th />
+                      <th>Actions</th>
                     </tr>
 
                     {!this.state.q?this.props.categories.map((category, index) =>
@@ -171,9 +172,11 @@ class CategoriesTable extends Component {
                 <Pagination categoryData={this.props} nextPage={this.nextPage} previousPage={this.previousPage} />
               </div>
 
-              : <div className="alert alert-info col-sm-8" id="no-categories">
-                <p>No categories at the moment!<a onClick={this.handleShow} className="btn btn-primary pull-right"> Add Category</a></p>
-                </div>
+              : <center>
+                  <div className="alert alert-info col-sm-8" id="no-categories">
+                  <p>No categories at the moment!<a onClick={this.handleShow} className="btn btn-primary pull-right"> Add Category</a></p>
+                  </div>
+                </center>
             }
             </div>
         }
@@ -211,11 +214,13 @@ export const mapStateToProps = (state, ownProps) => {
   };
 };
 export const mapDispatchToProps = dispatch => ({
+
   loadCategories: url => dispatch(loadCategories(url)),
   loadCategory: url => dispatch(loadCategory(url)),
   addCategory: (url,data) => dispatch(addCategory(url, data)),
   updateCategory: (id,data) => dispatch(updateCategory(id, data)),
-  deleteCategory: (id) => dispatch(deleteCategory(id))
+  deleteCategory: (id) => dispatch(deleteCategory(id)),
+  loadRecipes:(url) => dispatch(loadRecipes(url))    
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoriesTable);
