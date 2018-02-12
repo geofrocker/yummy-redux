@@ -13,7 +13,7 @@ const RecipeTableRows = props => (
       <p>
         <a href={`/recipe/${props.recipe_id}`} className="btn btn-default"><span className="fa fa-eye"> View</span></a>&nbsp;
         <button onClick={() => props.handleEditData(props.recipe_id)} className="btn btn-primary"><span className="fa fa-edit"> Edit</span></button>&nbsp;
-        <button onClick={() => props.deleteHandler(props.recipe_id)} className="btn btn-danger"><span className="fa fa-trash-alt"> Delete</span></button>
+        <button onClick={() => props.deleteHandler(props.recipe_id)} className="btn btn-danger"><span className="fa fa-trash"> Delete</span></button>
       </p>
     </Thumbnail>
   </div>
