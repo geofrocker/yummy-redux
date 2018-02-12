@@ -26,6 +26,10 @@ class Review extends Component {
         this.props.actions.loadRecipe(this.state.recipe_id)
         this.props.actions.loadReviews(this.state.recipe_id)  
     }
+
+    goBack = () =>{
+        this.props.history.goBack()
+    }
     // update the state after the user has enter the review
     handleContentChange = (event) =>{
         this.setState({content: event.target.value})
@@ -81,7 +85,7 @@ class Review extends Component {
             ?<center id="loader-recipes"><i className="fa fa-spinner fa-pulse fa-4x fa-fw"></i></center>
             :<div>
                 <div className="jumbotron">
-                    <h3>{recipeData.title}<a href="/" className="btn btn-primary pull-right">Go back</a></h3>
+                    <h3>{recipeData.title}<a onClick={this.goBack} className="btn btn-primary pull-right"><span className='fa fa-arrow-left'></span> Return</a></h3>
                     <em>Added by <span className="fa fa-user"></span> { recipeData.created_by } about <span className="fa fa-calendar"></span> <Since date={ recipeData.create_date } /></em>
                     <hr/>
                     <div>
