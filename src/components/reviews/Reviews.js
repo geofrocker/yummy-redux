@@ -77,6 +77,9 @@ class Review extends Component {
         }
         return (
             <div className="Review">
+            {this.props.loading
+            ?<center id="loader-recipes"><i className="fa fa-spinner fa-pulse fa-4x fa-fw"></i></center>
+            :<div>
                 <div className="jumbotron">
                     <h3>{recipeData.title}<a href="/" className="btn btn-primary pull-right">Go back</a></h3>
                     <em>Added by <span className="fa fa-user"></span> { recipeData.created_by } about <span className="fa fa-calendar"></span> <Since date={ recipeData.create_date } /></em>
@@ -107,6 +110,8 @@ class Review extends Component {
                     </form>
                 </div>
             </div>
+            }
+            </div>
 
         );
         
@@ -122,7 +127,8 @@ function mapStateToProps(state, ownProps){
     recipeData:state.recipes.recipe,
     reviews:state.recipes.reviews,
     message:state.recipes.message,
-    review:state.recipes.review
+    review:state.recipes.review,
+    loading: state.ajaxCallsInProgress > 0,
   }
 }
 

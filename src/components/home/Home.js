@@ -10,13 +10,16 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {showMessage:false, q:'', page:1, url: url+'?page=1', redirect:false};
+    }
+
+    componentDidMount(){
         this.props.loadRecipes(this.state.url)
         .catch(xhr =>{
             let defaultResponse = "An Error occurred, Try again";
             toastr.error(xhr.response ? xhr.response.data.message: defaultResponse)
             this.setState({redirect:true})
             console.log(this.state.redirect)
-          })
+        })
     }
 
     //Handle the link to the next page from pagination
@@ -51,7 +54,7 @@ class Home extends Component {
         }
     }
     render(){
-        const {page, recipes, disableNext, disablePrevious, total_pages}=this.props
+        const {page, recipes, disableNext, disablePrevious, total_pages, loading}=this.props
         if(this.state.redirect){
             return <Redirect to='/error'/>
         }
@@ -80,6 +83,8 @@ class Home extends Component {
         }
         return (
             <div className="Home">
+            {loading?<center id="loader-recipes"><i className="fa fa-spinner fa-pulse fa-4x fa-fw"></i></center>
+            :<div>
                 <div className="col-xs-12 col-sm-6 pull-right">
                     <div className="input-group mb-2 mb-sm-0">
                         <div className="input-group-addon">Search</div>
@@ -94,6 +99,7 @@ class Home extends Component {
                     )}
                 </div>
                 {loadPagination}
+            </div>}
             </div>
     );
     }
@@ -127,7 +133,8 @@ Home.propTypes = {
         next_page:state.recipes.next_page,
         message:state.message,
         disablePrevious,
-        disableNext
+        disableNext,
+        loading: state.ajaxCallsInProgress > 0,
     }
   }
   

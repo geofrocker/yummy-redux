@@ -63,6 +63,11 @@ table{
 #loader{
     padding: 50px
 }
+
+#loader-recipes{
+    padding: 320px
+}
+
 .modal-content{
     margin-top: 118px
 }
