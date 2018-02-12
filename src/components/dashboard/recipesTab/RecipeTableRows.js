@@ -2,12 +2,12 @@ import React from 'react';
 import { Thumbnail } from 'react-bootstrap';
 
 function truncate(str) {
-  return `${str.substring(0, 40)}`;
+  return `${str.substring(0, 25)}`;
 }
 
 const RecipeTableRows = props => (
   <div className="col-md-4">
-    <Thumbnail src="https://mperumpy.sirv.com/Images/recipes3.jpeg" alt="242x200">
+    <Thumbnail src="https://mperumpy.sirv.com/Images/brooke-lark-158017.jpg" alt="242x200">
       <h3>{truncate(props.title)}</h3>
       <p>{`${truncate(props.ingredients)}...`}</p>
       <p>

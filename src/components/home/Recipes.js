@@ -2,7 +2,7 @@ import React from 'react';
 import Since from 'react-since';
 
 const Recipes = props =>
-  <div className="jumbotron">
+  (<div className="jumbotron">
       <h3>{props.title}</h3>
       <em>Added by <span className="fa fa-user"></span> { props.created_by } about <span className="fa fa-calendar"></span> <Since date={ props.create_date } /> | Category: { props.category}
       <a href={'/recipe/' + props.recipe_id} className="btn btn-primary pull-right">Review</a>
@@ -18,5 +18,5 @@ const Recipes = props =>
               <button type="button" className="btn btn-default btn-xs"><span className="fa fa-thumbs-o-up"></span> Upvotes:{props.upvotes}</button>
           </div>
       </div>
-  </div>;
-export default Recipes
+  </div>);
+export default Recipes;
