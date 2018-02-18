@@ -13,6 +13,16 @@ export default function registerReducer(state = initialState.auth, action) {
         ...state.message,
         message: action.message,
       };
+    case types.LOGIN_FAIL:
+      return {
+        ...state.message,
+        message: action.message,
+      };
+    case types.LOGIN_SUCCESS:
+      return {
+        ...state.message,
+        message: action.message,
+      };
     default:
       return state;
   }

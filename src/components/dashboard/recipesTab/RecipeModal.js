@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 const Categories = props =>
-  <option>{props.cat_name}</option>;
+  <option value={props.cat_id}>{props.cat_name}</option>;
 
 const RecipeModal = (props) => {
   const {
@@ -15,13 +15,14 @@ const RecipeModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={modalTitle === 'Add Recipe' ? props.addRecipe : props.handleRecipeUpdate} id="recipe-form">
+          {!categories ? <center><label className="label label-danger">Create categories first, before adding recipes</label></center> : <div />}
           <div className="form-group">
             <input type="text" className="form-control" value={recipeData.title} onChange={handleChange} placeholder="Title" id="title" required />
           </div>
           <div className="form-group">
             <select className="form-control" onChange={handleChange} id="category">
-              {recipeData.category ?
-                <option value={recipeData.category} selected>{recipeData.category}</option>
+              {modalTitle === 'Edit Recipe' ?
+                <option value={recipeData.category} selected>{recipeData.category_rel}</option>
               : <div />}
               <option disabled selected={selected}>Select Category</option>
               {categories.map(category =>

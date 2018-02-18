@@ -15,9 +15,7 @@ const Dashboard = () => {
         <div className="panel-body">
           <Tabs defaultActiveKey={1} animation id="myContent">
             <Tab eventKey={1} title="Recipes">
-              {/* <ErrorBoundaryAppContainer> */}
               <RecipesTable />
-              {/* </ErrorBoundaryAppContainer> */}
             </Tab>
             <Tab eventKey={2} title="Categories">
               <Categories />

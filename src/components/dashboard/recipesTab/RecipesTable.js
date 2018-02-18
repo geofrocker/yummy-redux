@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import * as recipesActions from '../../../actions/recipesActions'
+import {loadRecipes, loadRecipe, loadCategories, updateRecipe, deleteRecipe, addRecipe} from '../../../actions/recipesActions'
 import url from '../../../config'
 import RecipeTableRows from './RecipeTableRows'
 import Pagination from './Pagination'
@@ -10,31 +9,28 @@ import RecipeModal from './RecipeModal'
 import toastr from 'toastr';
 import { Redirect } from 'react-router-dom';
 
-class RecipesTable extends Component{
+export class RecipesTable extends Component{
   constructor(props){
     super(props)
     this.state = {showMessage:false, q:'', page:1, url: url+'myrecipes?page=1',show: false,selected:'',modalTitle:'Add Recipe',recipeId:'',
-    recipeData:{title:'',category:'',ingredients:'',steps:'',status:''},redirect: false
+    recipeData:{title:'',category:'',ingredients:'',steps:'',status:'',category_rel:''},redirect: false
     };
   }
-  componentWillMount(){
-    this.props.actions.loadRecipes(this.state.url)
+  componentDidMount(){
+    this.props.loadRecipes(this.state.url)
     .catch(xhr =>{
-      this.setState({ redirect: true });
+      xhr.response.status ===500 || !xhr.response?this.setState({ redirect: true }): this.setState({ redirect: false })
     })
-    this.props.actions.loadCategories(`${url}category?page=1`)
-    .catch(xhr =>{
-      this.setState({ redirect: true });
-    })
+    this.props.loadCategories(`${url}category?page=1`)
   }
   
   addRecipe = (e) =>{
     e.preventDefault()
-    this.props.actions.addRecipe(this.state.recipeData)
+    this.props.addRecipe(this.state.recipeData)
     .then(() =>{
       toastr.success('Recipe Created Successfully')
       this.setState({recipeData:{title:'',category:'',ingredients:'',steps:'',status:''}})
-      this.props.actions.loadRecipes(`${url}myrecipes?page=1`)
+      this.props.loadRecipes(`${url}myrecipes?page=1`)
       this.handleClose()
     }).catch(xhr =>{
       toastr.error(this.props.message)
@@ -42,11 +38,11 @@ class RecipesTable extends Component{
   }
   handleRecipeUpdate = (e) => {
     e.preventDefault()
-    this.props.actions.updateRecipe(this.state.recipeId,this.state.recipeData)
+    this.props.updateRecipe(this.state.recipeId,this.state.recipeData)
     .then(() =>{
       toastr.success('Recipe Updated Successfully')
       this.setState({recipeData:{title:'',category:'',ingredients:'',steps:'',status:''}})
-      this.props.actions.loadRecipes(`${url}myrecipes?page=${this.props.page}`)
+      this.props.loadRecipes(`${url}myrecipes?page=${this.props.page}`)
       this.handleClose()
     }).catch(xhr =>{
       toastr.error(this.props.message)
@@ -54,10 +50,10 @@ class RecipesTable extends Component{
   }
 
   deleteHandler = (id,e) =>{
-    this.props.actions.deleteRecipe(id)
+    this.props.deleteRecipe(id)
     .then(() =>{
       toastr.success('Recipe Deleted Successfully')
-      this.props.actions.loadRecipes(`${url}myrecipes?page=${this.props.page}`)
+      this.props.loadRecipes(`${url}myrecipes?page=${this.props.page}`)
     }).catch(() =>{
       toastr.error(this.props.message)
     })
@@ -74,14 +70,15 @@ class RecipesTable extends Component{
     this.setState({ show: false });
   }
   handleEditData = (id) =>{
-    this.props.actions.loadRecipe(id).then(() =>{
+    this.props.loadRecipe(id).then(() =>{
       this.setState({
         recipeData:{
           title:this.props.recipe.title,
           category:this.props.recipe.category,
           ingredients:this.props.recipe.ingredients,
           steps:this.props.recipe.steps,
-          status:this.props.recipe.status
+          status:this.props.recipe.status,
+          category_rel:this.props.recipe.category_rel
         },
         modalTitle:'Edit Recipe',
         recipeId:id
@@ -97,7 +94,7 @@ class RecipesTable extends Component{
   //Handle the link to the next page from pagination
   nextPage =(props) =>{
       if (props.has_next){
-          props.actions.loadRecipes(props.next_page)
+          props.loadRecipes(props.next_page)
           .catch(xhr=>{
             this.setState({ redirect: true });
           })
@@ -107,7 +104,7 @@ class RecipesTable extends Component{
   // Handle the link to the previous page from pagination
   previousPage =(props) =>{
       if(props.has_prev){
-          props.actions.loadRecipes(props.previous_page)
+          props.loadRecipes(props.previous_page)
           .catch(xhr=>{
             this.setState({ redirect: true });
           })
@@ -119,16 +116,10 @@ class RecipesTable extends Component{
     this.setState({showMessage:false,q: event.target.value,page:1});
     if(this.state.q){
         let localurl = url +'myrecipes?q='+this.state.q+'&page='+this.state.page
-        this.props.actions.loadRecipes(localurl)
-        .catch(xhr=>{
-          this.setState({ redirect: true });
-        })
+        this.props.loadRecipes(localurl)
     }else{
         let localurl = url +'myrecipes?page='+this.state.page
-        this.props.actions.loadRecipes(localurl)
-        .catch(xhr=>{
-          this.setState({ redirect: true });
-        })
+        this.props.loadRecipes(localurl)
     }
     if(this.props.recipes.length===0){
         this.setState({
@@ -141,13 +132,13 @@ class RecipesTable extends Component{
       return <Redirect to="/error" />
     }
     return(
-      <div>
+      <div className="RecipesTable">
         <h3>&nbsp;<a onClick={this.handleShow} className="btn btn-success pull-right"> Add Recipe</a>
         <RecipeModal handleClose={this.handleClose} show={this.state.show} selected={this.state.selected} recipeData={this.state.recipeData} message={this.props.message} categories={this.props.categories} modalTitle={this.state.modalTitle} handleChange={this.handeChange} handleRecipeUpdate={this.handleRecipeUpdate} addRecipe={this.addRecipe}/>
             <div className="col-xs-7 col-sm-4 pull-right">
                 <div className="input-group mb-2 mb-sm-0">
                     <div className="input-group-addon">Search</div>
-                    <input type="text" className="form-control" onChange={this.handleRecipeSearch} onKeyUp={this.handleRecipeSearch} placeholder="Enter your search key words here!" />
+                    <input type="text" className="form-control" onChange={this.handleRecipeSearch} onKeyUp={this.handleRecipeSearch} placeholder="Enter your search key words here!" id="search"/>
                 </div>
             </div>
         </h3><br/>
@@ -171,13 +162,6 @@ class RecipesTable extends Component{
       </div>
     )
 }
-}
-RecipesTable.propTypes = {
-  recipes: PropTypes.array.isRequired,
-}
-
-RecipesTable.contextTypes = {
-  router: PropTypes.object
 }
 
 function mapStateToProps(state, ownProps){
@@ -213,7 +197,13 @@ function mapStateToProps(state, ownProps){
 
 function mapDispatchToProps(dispatch){
   return{
-    actions: bindActionCreators(recipesActions, dispatch)
+    loadRecipes:(url) => dispatch(loadRecipes(url)),
+    loadRecipe:(id) => dispatch(loadRecipe(id)),
+    loadCategories:(url) => dispatch(loadCategories(url)),
+    addRecipe:(data) => dispatch(addRecipe(data)),
+    updateRecipe:(id,data) => dispatch(updateRecipe(id,data)),
+    deleteRecipe:(id) => dispatch(deleteRecipe(id)),
+    
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps) (RecipesTable);

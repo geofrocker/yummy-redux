@@ -17,6 +17,7 @@ export function loadRecipes(recipesUrl) {
         dispatch(loadRecipesSuccess(response.data));
       }).catch((xhr) => {
         dispatch(loadRecipesFail(xhr.response.data.message));
+        throw (xhr);
       });
   };
 }

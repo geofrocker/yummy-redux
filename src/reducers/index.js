@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import auth from './registerReducer';
+import auth from './authReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 import recipes from './recipesReducer';
 import categories from './/categoriesReducer';

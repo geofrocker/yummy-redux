@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import * as LoginActions from '../../actions/loginActions'
+import {login} from '../../actions/loginActions'
 import toastr from 'toastr'
 import {Redirect} from 'react-router-dom'
 
-class Login extends Component {
-  constructor(props, context){
-    super(props, context)
+export class Login extends Component {
+  constructor(props){
+    super(props)
     this.state={
         userData:{username:'',password:''},
         message:'',
@@ -26,7 +25,7 @@ class Login extends Component {
     
   loginUser = (e) =>{
     e.preventDefault();
-    this.props.actions.login(this.state.userData)
+    this.props.login(this.state.userData)
     .then(() =>{
       toastr.success('You are now logged In')
       this.setState({redirect:true})
@@ -44,7 +43,7 @@ class Login extends Component {
   render(){
       const {redirect,userData, message}=this.state
       if(redirect){
-        return <Redirect to="/dashboard" />
+        return <Redirect to="dashboard" />
       }
       if (localStorage.getItem('isLoggedIn')) {
         return <Redirect to="/dashboard" />;
@@ -59,11 +58,11 @@ class Login extends Component {
               <div className="jumbotron col-xs-11">
                   <form method="POST" id="login-form" onSubmit={this.loginUser}>
                       <div className="form-group">
-                          <input type="text" className="form-control" name="username" placeholder="Username" onChange={this.handleChange} value={userData.username} required/>
+                          <input type="text" className="form-control" id="username" name="username" placeholder="Username" onChange={this.handleChange} value={userData.username} required/>
                       </div>
                   
                       <div className="form-group">
-                          <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.handleChange} value={userData.password} required/>
+                          <input type="password" className="form-control" id="password" name="password" placeholder="Password" onChange={this.handleChange} value={userData.password} required/>
                       </div>
                       
                       <input type="submit" className="btn btn-primary pull-right" value="Login"/>
@@ -82,9 +81,6 @@ class Login extends Component {
 Login.contextType ={
   router:PropTypes.object
 }
-Login.propTypes = {
-  message: PropTypes.string.isRequired,
-}
 
 function mapStateToProps(state, ownProps){
   return {
@@ -94,7 +90,7 @@ function mapStateToProps(state, ownProps){
 
 function mapDispatchToProps(dispatch){
   return{
-    actions: bindActionCreators(LoginActions, dispatch)
+    login:(data) => dispatch(login(data))    
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps) (Login);

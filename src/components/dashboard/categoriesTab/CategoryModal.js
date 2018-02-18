@@ -11,7 +11,7 @@ const CategoryModal = (props) => {
         <Modal.Title>{modalTitle}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <form onSubmit={modalTitle === 'Add Category' ? props.addCategory : props.handleCategoryUpdate} id="recipe-form">
+        <form onSubmit={modalTitle === 'Add Category' ? props.addCategory : props.handleCategoryUpdate} id="category-form">
           <div className="form-group">
             <input type="text" className="form-control" value={catData.cat_name} onChange={handleChange} placeholder="Category Name" id="cat_name" required />
           </div>

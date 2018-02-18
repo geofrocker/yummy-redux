@@ -9,7 +9,7 @@ import CategoryTableRows from './CategoryTableRows';
 import CategoryModal from './CategoryModal'
 import toastr from 'toastr'
 
-class CategoriesTable extends Component {
+export class CategoriesTable extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -43,7 +43,6 @@ class CategoriesTable extends Component {
   }
 
   deleteHandler = (id, e) =>{
-    console.log(id)
     this.props.deleteCategory(id)
     .then(() =>{
       toastr.success('Category Deleted Successfully')
@@ -126,7 +125,6 @@ class CategoriesTable extends Component {
             event.target.value.toLowerCase()) !== -1;
         });
         this.setState({categories: updatedList});
-        console.log(this.state.categories)
     if(this.state.categories.length===0){
         this.setState({
             showMessage:true
@@ -136,13 +134,13 @@ class CategoriesTable extends Component {
 }
   render() {
     return (
-      <div className="col-md-9">
-        <h3>&nbsp;<a onClick={this.handleShow} className="btn btn-success pull-right"> Add Category</a>
+      <div className="CategoriesTable col-md-9">
+        <h3>&nbsp;<a onClick={this.handleShow} className="btn btn-success pull-right" id="addCategory"> Add Category</a>
         <CategoryModal handleClose={this.handleClose} catData = {this.state.catData} show={this.state.show} message={this.props.message} modalTitle={this.state.modalTitle} handleChange={this.handleChange} handleCategoryUpdate={this.handleCategoryUpdate} addCategory={this.addCategory}/>
           <div className="col-xs-7 col-sm-4 pull-right">
             <div className="input-group mb-2 mb-sm-0">
               <div className="input-group-addon">Search</div>
-              <input type="text" className="form-control" onChange={this.handleCategorySearch} onKeyUp={this.handleCategorySearch} placeholder="Enter your search key words here!" />
+              <input type="text" className="form-control" id="catSearch" onChange={this.handleCategorySearch} onKeyUp={this.handleCategorySearch} placeholder="Enter your search key words here!" />
             </div>
           </div>
         </h3><br />
@@ -151,7 +149,7 @@ class CategoriesTable extends Component {
           : <div>
             {this.state.categories.length > 0
               ? <div>
-                <Table table table-striped responsive>
+                <Table className="table table-striped responsive">
                   <tbody id="tbody">
                     <tr>
                       <th>ID</th>

@@ -7,19 +7,19 @@ import {Navbar, MenuItem, NavDropdown, Nav, NavItem} from 'react-bootstrap';
 import Home from './home/Home'
 import Register from './register/Register'
 import Login from './login/Login'
-import Logout from '../components/logout/Logout'
 import Dashboard from './dashboard/Dashboard'
-// import AddRecipe from './add_recipe'
-// import EditRecipe from './edit_recipe'
-// import AddCategory from './add_category'
-// import EditCategory from './edit_category'
 import ErrorBoundaryAppContainer from '../components/ErrorBoundary';
 import Review from './reviews/Reviews'
 import NotFound from './notFound/NotFound'
+import {Redirect} from 'react-router-dom'
 
-class App extends Component {
+export class App extends Component {
+    constructor(props){
+        super(props)
+    }
     handlelogout = (e) =>{
         localStorage.clear()
+        window.location.reload()
     }
     render(){
         let loadNavBarContent;
@@ -29,7 +29,7 @@ class App extends Component {
                 <NavItem>{this.props.loading && <i className="fa fa-spinner fa-pulse fa-2x fa-fw"></i>}</NavItem>
                 <NavDropdown title={'Logged in as '+localStorage.getItem('user')} id="basic-nav-dropdown">
                     <MenuItem eventKey={3.1} href="/dashboard">Dashboard</MenuItem>
-                    <MenuItem eventKey={3.2} onClick={this.handlelogout} href="/logout">Logout</MenuItem>
+                    <MenuItem eventKey={3.2} onClick={this.handlelogout}>Logout</MenuItem>
                 </NavDropdown>
             </Nav>
         }else {
@@ -60,12 +60,7 @@ class App extends Component {
                             <Route exact path="/" component={Home}/>
                             <Route path="/register" component={Register}/>
                             <Route path="/login" component={Login}/>
-                            <Route path ="/logout" component={Logout}/>
                             <Route path="/dashboard" component={Dashboard}/>
-                            {/* <Route path="/add_recipe" component={AddRecipe}/>
-                            <Route path="/edit_recipe/:recipe_id" component={EditRecipe} />
-                            <Route path="/add_category" component={AddCategory} />
-                            <Route path="/edit_category/:cat_id" component={EditCategory} /> */}
                             <Route path="/recipe/:recipe_id" component={Review} />
                             <Route path="/error" component={ErrorBoundaryAppContainer} />
                             <Route path="*" exact={true} component={NotFound} />
@@ -76,9 +71,7 @@ class App extends Component {
         );
     }
 }
-App.propTypes ={
-    loading: PropTypes.bool.isRequired
-}
+
 function mapStateToProps(state, ownProps){
     return {
         loading: state.ajaxCallsInProgress > 0

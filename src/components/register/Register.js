@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import * as registerActions from '../../actions/registerActions'
+import {register} from '../../actions/registerActions'
 import toastr from 'toastr'
 import {Redirect} from 'react-router-dom'
 
-class Register extends Component {
+export class Register extends Component {
 
     constructor(props){
         super(props);
@@ -16,7 +14,6 @@ class Register extends Component {
             color:'col-xs-11 alert alert-danger',
             redirect:false
         }
-        console.log(this.props)
     }
 
     handleChange = (event) => {
@@ -36,8 +33,7 @@ class Register extends Component {
                 color:'col-xs-11 alert alert-danger'
             })
         }
-        this.props.actions.register(this.state.userData)
-        .then((response) =>{
+        this.props.register(this.state.userData).then((response) =>{
             return this.setState(() =>{
                 toastr.success('You are now registered')
                 return {
@@ -75,19 +71,19 @@ class Register extends Component {
             <form id="signup-form" onSubmit={this.regUser}>
                 <div className="jumbotron col-xs-11">
                     <div className="form-group">
-                        <input type="text" className="form-control" placeholder="Name" value={userData.name} onChange={this.handleChange} name="name" required/>
+                        <input type="text" className="form-control" placeholder="Name" value={userData.name} onChange={this.handleChange} name="name" id="name" required/>
                     </div>
                     <div className="form-group">
-                        <input type="text" className="form-control" placeholder="Username" value={userData.username} onChange={this.handleChange} name="username" required/>
+                        <input type="text" className="form-control" placeholder="Username" value={userData.username} onChange={this.handleChange} name="username" id="username" required/>
                     </div>
                     <div className="form-group">
-                        <input type="email" className="form-control" placeholder="Email" value={userData.email} onChange={this.handleChange} name="email" required/>
+                        <input type="email" className="form-control" placeholder="Email" value={userData.email} onChange={this.handleChange} name="email" id="email" required/>
                     </div>
                     <div className="form-group">
-                        <input type="password" className="form-control" placeholder="Password" value={userData.cpassword} onChange={this.handleChange} name="cpassword" required/>
+                        <input type="password" className="form-control" placeholder="Password" value={userData.cpassword} onChange={this.handleChange} name="cpassword" id="cpassword" required/>
                     </div>
                     <div className="form-group">
-                        <input type="password" className="form-control" placeholder="Comfirm Password" value={userData.password} onChange={this.handleChange} name="password" required/>
+                        <input type="password" className="form-control" placeholder="Comfirm Password" value={userData.password} onChange={this.handleChange} name="password" id="password" required/>
                     </div>
                     <input type="submit" className="btn btn-primary pull-right" value="Register"/>
 
@@ -103,9 +99,6 @@ class Register extends Component {
         );
     }
 }
-Register.propTypes = {
-    message: PropTypes.string.isRequired,
-}
 
 function mapStateToProps(state, ownProps){
     return {
@@ -114,10 +107,8 @@ function mapStateToProps(state, ownProps){
     }
 }
   
-function mapDispatchToProps(dispatch){
-    return{
-        actions: bindActionCreators(registerActions, dispatch)
-    }
-}
+export const mapDispatchToProps = (dispatch) =>({
+        register:(data) => dispatch(register(data))    
+})
 export default connect(mapStateToProps, mapDispatchToProps) (Register);
   
