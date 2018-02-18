@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`register component render the six inputs 1`] = `
+<Redirect
+  push={false}
+  to="/login"
+/>
+`;
+
+exports[`register component renders the sign up form and submit data 1`] = `
+<div
+  className="Register"
+>
+  <h1>
+    Register Here
+  </h1>
+  <div />
+  <form
+    id="signup-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="jumbotron col-xs-11"
+    >
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control"
+          id="name"
+          name="name"
+          onChange={[Function]}
+          placeholder="Name"
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control"
+          id="username"
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control"
+          id="email"
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          required={true}
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control"
+          id="cpassword"
+          name="cpassword"
+          onChange={[Function]}
+          placeholder="Password"
+          required={true}
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control"
+          id="password"
+          name="password"
+          onChange={[Function]}
+          placeholder="Comfirm Password"
+          required={true}
+          type="password"
+          value=""
+        />
+      </div>
+      <input
+        className="btn btn-primary pull-right"
+        type="submit"
+        value="Register"
+      />
+      <center>
+        <p>
+          or
+        </p>
+        <p>
+          <a
+            href="/login"
+          >
+            Already a member? Click here to login
+          </a>
+        </p>
+      </center>
+    </div>
+  </form>
+</div>
+`;

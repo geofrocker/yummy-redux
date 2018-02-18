@@ -4,6 +4,11 @@ import toJson from 'enzyme-to-json';
 import { Login } from '../components/login/Login';
 
 const props = {
+  window: {
+    location: {
+      reload: () => {},
+    },
+  },
   login: () => Promise.resolve(),
 };
 

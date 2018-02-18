@@ -29,7 +29,7 @@ export class Login extends Component {
     .then(() =>{
       toastr.success('You are now logged In')
       this.setState({redirect:true})
-      window.location.reload()
+      this.props.update()
     })
     .catch(xhr=>{
       return this.setState(() =>{

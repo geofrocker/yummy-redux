@@ -16,19 +16,25 @@ import {Redirect} from 'react-router-dom'
 export class App extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            isLoggedIn:localStorage.getItem('isLoggedIn')
+        }
+    }
+    handleUpdate = () =>{
+        this.setState({isLoggedIn:localStorage.getItem('isLoggedIn')})
     }
     handlelogout = (e) =>{
         localStorage.clear()
-        window.location.reload()
+        this.setState({isLoggedIn:false})
     }
     render(){
         let loadNavBarContent;
-        if (localStorage.getItem('isLoggedIn')) {
+        if (this.state.isLoggedIn) {
            loadNavBarContent =
             <Nav pullRight>
                 <NavItem>{this.props.loading && <i className="fa fa-spinner fa-pulse fa-2x fa-fw"></i>}</NavItem>
                 <NavDropdown title={'Logged in as '+localStorage.getItem('user')} id="basic-nav-dropdown">
-                    <MenuItem eventKey={3.1} href="/dashboard">Dashboard</MenuItem>
+                    <MenuItem eventKey={3.1}><Link id="link-color" to="/dashboard">Dashboard</Link></MenuItem>
                     <MenuItem eventKey={3.2} onClick={this.handlelogout}>Logout</MenuItem>
                 </NavDropdown>
             </Nav>
@@ -46,8 +52,8 @@ export class App extends Component {
                     <Navbar inverse collapseOnSelect fixedTop>
                         <Navbar.Header>
                             <Navbar.Brand>
-                            <a href="/"><span><img src={require('../static/img/andela.png')} width='24' alt="logo"/></span>
-                            Yummy Recipes</a>
+                            <Link to="/"><span><img src={require('../static/img/andela.png')} width='24' alt="logo"/></span>
+                            Yummy Recipes</Link>
                             </Navbar.Brand>
                             <Navbar.Toggle />
                         </Navbar.Header>
@@ -59,7 +65,7 @@ export class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/register" component={Register}/>
-                            <Route path="/login" component={Login}/>
+                            <Route path="/login" render={ routeProps => <Login {...routeProps} update={this.handleUpdate}/> }/>
                             <Route path="/dashboard" component={Dashboard}/>
                             <Route path="/recipe/:recipe_id" component={Review} />
                             <Route path="/error" component={ErrorBoundaryAppContainer} />

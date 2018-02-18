@@ -18,5 +18,5 @@ const Recipes = props =>
         <button type="button" className="btn btn-default btn-xs"><span className="fa fa-thumbs-o-up" /> Upvotes:{props.upvotes}</button>
       </div>
     </div>
-   </div>);
+  </div>);
 export default Recipes;
