@@ -1,0 +1,1169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the Recipe Table component  handle deleting the recipe  1`] = `
+<RecipesTable
+  categories={
+    Array [
+      Object {
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  deleteRecipe={[Function]}
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+  loadCategories={[Function]}
+  loadRecipes={[Function]}
+  recipes={
+    Array [
+      Object {
+        "ingredients": "Ipsum",
+        "recipe_id": 1,
+        "title": "Lorem",
+      },
+    ]
+  }
+  str={Object {}}
+>
+  <div
+    className="RecipesTable"
+  >
+    <h3>
+       
+      <a
+        className="btn btn-success pull-right"
+        onClick={[Function]}
+      >
+         Add Recipe
+      </a>
+      <RecipeModal
+        addRecipe={[Function]}
+        categories={
+          Array [
+            Object {
+              "cat_id": 1,
+              "cat_name": "lorem",
+            },
+          ]
+        }
+        handleChange={[Function]}
+        handleClose={[Function]}
+        handleRecipeUpdate={[Function]}
+        modalTitle="Add Recipe"
+        recipeData={
+          Object {
+            "category": "",
+            "category_rel": "",
+            "ingredients": "",
+            "status": "",
+            "steps": "",
+            "title": "",
+          }
+        }
+        selected=""
+        show={false}
+      >
+        <Modal
+          animation={true}
+          autoFocus={true}
+          backdrop={true}
+          bsClass="modal"
+          dialogComponentClass={[Function]}
+          enforceFocus={true}
+          keyboard={true}
+          manager={
+            ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            }
+          }
+          onHide={[Function]}
+          renderBackdrop={[Function]}
+          restoreFocus={true}
+          show={false}
+        >
+          <Modal
+            autoFocus={true}
+            backdrop={true}
+            backdropClassName="modal-backdrop"
+            backdropTransition={[Function]}
+            containerClassName="modal-open"
+            enforceFocus={true}
+            keyboard={true}
+            manager={
+              ModalManager {
+                "add": [Function],
+                "containers": Array [],
+                "data": Array [],
+                "handleContainerOverflow": true,
+                "hideSiblingNodes": true,
+                "isTopModal": [Function],
+                "modals": Array [],
+                "remove": [Function],
+              }
+            }
+            onEntering={[Function]}
+            onExited={[Function]}
+            onHide={[Function]}
+            renderBackdrop={[Function]}
+            restoreFocus={true}
+            show={false}
+            transition={[Function]}
+          />
+        </Modal>
+      </RecipeModal>
+      <div
+        className="col-xs-7 col-sm-4 pull-right"
+      >
+        <div
+          className="input-group mb-2 mb-sm-0"
+        >
+          <div
+            className="input-group-addon"
+          >
+            Search
+          </div>
+          <input
+            className="form-control"
+            id="search"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            placeholder="Enter your search key words here!"
+            type="text"
+          />
+        </div>
+      </div>
+    </h3>
+    <br />
+    <div>
+      <div>
+        <RecipeTableRows
+          deleteHandler={[Function]}
+          handleEditData={[Function]}
+          id={1}
+          ingredients="Ipsum"
+          key="1"
+          recipe_id={1}
+          title="Lorem"
+        >
+          <div
+            className="col-md-4"
+          >
+            <Thumbnail
+              alt="242x200"
+              bsClass="thumbnail"
+              src="https://mperumpy.sirv.com/Images/brooke-lark-158017.jpg"
+            >
+              <div
+                className="thumbnail"
+              >
+                <img
+                  alt="242x200"
+                  src="https://mperumpy.sirv.com/Images/brooke-lark-158017.jpg"
+                />
+                <div
+                  className="caption"
+                >
+                  <h3>
+                    Lorem
+                  </h3>
+                  <p>
+                    Ipsum...
+                  </p>
+                  <p>
+                    <a
+                      className="btn btn-default"
+                      href="/recipe/1"
+                      id="view"
+                    >
+                      <span
+                        className="fa fa-eye"
+                      >
+                         View
+                      </span>
+                    </a>
+                     
+                    <button
+                      className="btn btn-primary"
+                      id="edit"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-edit"
+                      >
+                         Edit
+                      </span>
+                    </button>
+                     
+                    <button
+                      className="btn btn-danger"
+                      id="delete"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-trash"
+                      >
+                         Delete
+                      </span>
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </Thumbnail>
+          </div>
+        </RecipeTableRows>
+        <Pagination
+          nextPage={[Function]}
+          previousPage={[Function]}
+          recipeData={
+            Object {
+              "categories": Array [
+                Object {
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "deleteRecipe": [Function],
+              "history": Object {
+                "push": [Function],
+              },
+              "loadCategories": [Function],
+              "loadRecipes": [Function],
+              "recipes": Array [
+                Object {
+                  "ingredients": "Ipsum",
+                  "recipe_id": 1,
+                  "title": "Lorem",
+                },
+              ],
+              "str": Object {},
+            }
+          }
+        >
+          <center>
+            <div
+              className="col-xs-12 col-sm-12 pull-right"
+              id="pagination"
+            >
+              <ul
+                className="pagination"
+              >
+                <li>
+                  <a
+                    className="page-link"
+                    id="prevPage"
+                    onClick={[Function]}
+                  >
+                    Previous
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="page-link"
+                    id="nextPage"
+                    onClick={[Function]}
+                  >
+                    Next
+                  </a>
+                  <a
+                    className="page-link"
+                  >
+                    Showing 
+                     of 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </center>
+        </Pagination>
+      </div>
+    </div>
+  </div>
+</RecipesTable>
+`;
+
+exports[`the Recipe Table component  handle going back to next page  1`] = `
+<RecipesTable
+  categories={
+    Array [
+      Object {
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  deleteRecipe={[Function]}
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+  loadCategories={[Function]}
+  loadRecipes={[Function]}
+  recipes={
+    Array [
+      Object {
+        "ingredients": "Ipsum",
+        "recipe_id": 1,
+        "title": "Lorem",
+      },
+    ]
+  }
+  str={Object {}}
+>
+  <div
+    className="RecipesTable"
+  >
+    <h3>
+       
+      <a
+        className="btn btn-success pull-right"
+        onClick={[Function]}
+      >
+         Add Recipe
+      </a>
+      <RecipeModal
+        addRecipe={[Function]}
+        categories={
+          Array [
+            Object {
+              "cat_id": 1,
+              "cat_name": "lorem",
+            },
+          ]
+        }
+        handleChange={[Function]}
+        handleClose={[Function]}
+        handleRecipeUpdate={[Function]}
+        modalTitle="Add Recipe"
+        recipeData={
+          Object {
+            "category": "",
+            "category_rel": "",
+            "ingredients": "",
+            "status": "",
+            "steps": "",
+            "title": "",
+          }
+        }
+        selected=""
+        show={false}
+      >
+        <Modal
+          animation={true}
+          autoFocus={true}
+          backdrop={true}
+          bsClass="modal"
+          dialogComponentClass={[Function]}
+          enforceFocus={true}
+          keyboard={true}
+          manager={
+            ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            }
+          }
+          onHide={[Function]}
+          renderBackdrop={[Function]}
+          restoreFocus={true}
+          show={false}
+        >
+          <Modal
+            autoFocus={true}
+            backdrop={true}
+            backdropClassName="modal-backdrop"
+            backdropTransition={[Function]}
+            containerClassName="modal-open"
+            enforceFocus={true}
+            keyboard={true}
+            manager={
+              ModalManager {
+                "add": [Function],
+                "containers": Array [],
+                "data": Array [],
+                "handleContainerOverflow": true,
+                "hideSiblingNodes": true,
+                "isTopModal": [Function],
+                "modals": Array [],
+                "remove": [Function],
+              }
+            }
+            onEntering={[Function]}
+            onExited={[Function]}
+            onHide={[Function]}
+            renderBackdrop={[Function]}
+            restoreFocus={true}
+            show={false}
+            transition={[Function]}
+          />
+        </Modal>
+      </RecipeModal>
+      <div
+        className="col-xs-7 col-sm-4 pull-right"
+      >
+        <div
+          className="input-group mb-2 mb-sm-0"
+        >
+          <div
+            className="input-group-addon"
+          >
+            Search
+          </div>
+          <input
+            className="form-control"
+            id="search"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            placeholder="Enter your search key words here!"
+            type="text"
+          />
+        </div>
+      </div>
+    </h3>
+    <br />
+    <div>
+      <div>
+        <RecipeTableRows
+          deleteHandler={[Function]}
+          handleEditData={[Function]}
+          id={1}
+          ingredients="Ipsum"
+          key="1"
+          recipe_id={1}
+          title="Lorem"
+        >
+          <div
+            className="col-md-4"
+          >
+            <Thumbnail
+              alt="242x200"
+              bsClass="thumbnail"
+              src="https://mperumpy.sirv.com/Images/brooke-lark-158017.jpg"
+            >
+              <div
+                className="thumbnail"
+              >
+                <img
+                  alt="242x200"
+                  src="https://mperumpy.sirv.com/Images/brooke-lark-158017.jpg"
+                />
+                <div
+                  className="caption"
+                >
+                  <h3>
+                    Lorem
+                  </h3>
+                  <p>
+                    Ipsum...
+                  </p>
+                  <p>
+                    <a
+                      className="btn btn-default"
+                      href="/recipe/1"
+                      id="view"
+                    >
+                      <span
+                        className="fa fa-eye"
+                      >
+                         View
+                      </span>
+                    </a>
+                     
+                    <button
+                      className="btn btn-primary"
+                      id="edit"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-edit"
+                      >
+                         Edit
+                      </span>
+                    </button>
+                     
+                    <button
+                      className="btn btn-danger"
+                      id="delete"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-trash"
+                      >
+                         Delete
+                      </span>
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </Thumbnail>
+          </div>
+        </RecipeTableRows>
+        <Pagination
+          nextPage={[Function]}
+          previousPage={[Function]}
+          recipeData={
+            Object {
+              "categories": Array [
+                Object {
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "deleteRecipe": [Function],
+              "history": Object {
+                "push": [Function],
+              },
+              "loadCategories": [Function],
+              "loadRecipes": [Function],
+              "recipes": Array [
+                Object {
+                  "ingredients": "Ipsum",
+                  "recipe_id": 1,
+                  "title": "Lorem",
+                },
+              ],
+              "str": Object {},
+            }
+          }
+        >
+          <center>
+            <div
+              className="col-xs-12 col-sm-12 pull-right"
+              id="pagination"
+            >
+              <ul
+                className="pagination"
+              >
+                <li>
+                  <a
+                    className="page-link"
+                    id="prevPage"
+                    onClick={[Function]}
+                  >
+                    Previous
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="page-link"
+                    id="nextPage"
+                    onClick={[Function]}
+                  >
+                    Next
+                  </a>
+                  <a
+                    className="page-link"
+                  >
+                    Showing 
+                     of 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </center>
+        </Pagination>
+      </div>
+    </div>
+  </div>
+</RecipesTable>
+`;
+
+exports[`the Recipe Table component  handle going back to previous page  1`] = `
+<RecipesTable
+  categories={
+    Array [
+      Object {
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  deleteRecipe={[Function]}
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+  loadCategories={[Function]}
+  loadRecipes={[Function]}
+  recipes={
+    Array [
+      Object {
+        "ingredients": "Ipsum",
+        "recipe_id": 1,
+        "title": "Lorem",
+      },
+    ]
+  }
+  str={Object {}}
+>
+  <div
+    className="RecipesTable"
+  >
+    <h3>
+       
+      <a
+        className="btn btn-success pull-right"
+        onClick={[Function]}
+      >
+         Add Recipe
+      </a>
+      <RecipeModal
+        addRecipe={[Function]}
+        categories={
+          Array [
+            Object {
+              "cat_id": 1,
+              "cat_name": "lorem",
+            },
+          ]
+        }
+        handleChange={[Function]}
+        handleClose={[Function]}
+        handleRecipeUpdate={[Function]}
+        modalTitle="Add Recipe"
+        recipeData={
+          Object {
+            "category": "",
+            "category_rel": "",
+            "ingredients": "",
+            "status": "",
+            "steps": "",
+            "title": "",
+          }
+        }
+        selected=""
+        show={false}
+      >
+        <Modal
+          animation={true}
+          autoFocus={true}
+          backdrop={true}
+          bsClass="modal"
+          dialogComponentClass={[Function]}
+          enforceFocus={true}
+          keyboard={true}
+          manager={
+            ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            }
+          }
+          onHide={[Function]}
+          renderBackdrop={[Function]}
+          restoreFocus={true}
+          show={false}
+        >
+          <Modal
+            autoFocus={true}
+            backdrop={true}
+            backdropClassName="modal-backdrop"
+            backdropTransition={[Function]}
+            containerClassName="modal-open"
+            enforceFocus={true}
+            keyboard={true}
+            manager={
+              ModalManager {
+                "add": [Function],
+                "containers": Array [],
+                "data": Array [],
+                "handleContainerOverflow": true,
+                "hideSiblingNodes": true,
+                "isTopModal": [Function],
+                "modals": Array [],
+                "remove": [Function],
+              }
+            }
+            onEntering={[Function]}
+            onExited={[Function]}
+            onHide={[Function]}
+            renderBackdrop={[Function]}
+            restoreFocus={true}
+            show={false}
+            transition={[Function]}
+          />
+        </Modal>
+      </RecipeModal>
+      <div
+        className="col-xs-7 col-sm-4 pull-right"
+      >
+        <div
+          className="input-group mb-2 mb-sm-0"
+        >
+          <div
+            className="input-group-addon"
+          >
+            Search
+          </div>
+          <input
+            className="form-control"
+            id="search"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            placeholder="Enter your search key words here!"
+            type="text"
+          />
+        </div>
+      </div>
+    </h3>
+    <br />
+    <div>
+      <div>
+        <RecipeTableRows
+          deleteHandler={[Function]}
+          handleEditData={[Function]}
+          id={1}
+          ingredients="Ipsum"
+          key="1"
+          recipe_id={1}
+          title="Lorem"
+        >
+          <div
+            className="col-md-4"
+          >
+            <Thumbnail
+              alt="242x200"
+              bsClass="thumbnail"
+              src="https://mperumpy.sirv.com/Images/brooke-lark-158017.jpg"
+            >
+              <div
+                className="thumbnail"
+              >
+                <img
+                  alt="242x200"
+                  src="https://mperumpy.sirv.com/Images/brooke-lark-158017.jpg"
+                />
+                <div
+                  className="caption"
+                >
+                  <h3>
+                    Lorem
+                  </h3>
+                  <p>
+                    Ipsum...
+                  </p>
+                  <p>
+                    <a
+                      className="btn btn-default"
+                      href="/recipe/1"
+                      id="view"
+                    >
+                      <span
+                        className="fa fa-eye"
+                      >
+                         View
+                      </span>
+                    </a>
+                     
+                    <button
+                      className="btn btn-primary"
+                      id="edit"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-edit"
+                      >
+                         Edit
+                      </span>
+                    </button>
+                     
+                    <button
+                      className="btn btn-danger"
+                      id="delete"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-trash"
+                      >
+                         Delete
+                      </span>
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </Thumbnail>
+          </div>
+        </RecipeTableRows>
+        <Pagination
+          nextPage={[Function]}
+          previousPage={[Function]}
+          recipeData={
+            Object {
+              "categories": Array [
+                Object {
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "deleteRecipe": [Function],
+              "history": Object {
+                "push": [Function],
+              },
+              "loadCategories": [Function],
+              "loadRecipes": [Function],
+              "recipes": Array [
+                Object {
+                  "ingredients": "Ipsum",
+                  "recipe_id": 1,
+                  "title": "Lorem",
+                },
+              ],
+              "str": Object {},
+            }
+          }
+        >
+          <center>
+            <div
+              className="col-xs-12 col-sm-12 pull-right"
+              id="pagination"
+            >
+              <ul
+                className="pagination"
+              >
+                <li>
+                  <a
+                    className="page-link"
+                    id="prevPage"
+                    onClick={[Function]}
+                  >
+                    Previous
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="page-link"
+                    id="nextPage"
+                    onClick={[Function]}
+                  >
+                    Next
+                  </a>
+                  <a
+                    className="page-link"
+                  >
+                    Showing 
+                     of 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </center>
+        </Pagination>
+      </div>
+    </div>
+  </div>
+</RecipesTable>
+`;
+
+exports[`the Recipe Table component  handles search feature  1`] = `
+<RecipesTable
+  categories={
+    Array [
+      Object {
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  deleteRecipe={[Function]}
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+  loadCategories={[Function]}
+  loadRecipes={[Function]}
+  recipes={
+    Array [
+      Object {
+        "ingredients": "Ipsum",
+        "recipe_id": 1,
+        "title": "Lorem",
+      },
+    ]
+  }
+  str={Object {}}
+>
+  <div
+    className="RecipesTable"
+  >
+    <h3>
+       
+      <a
+        className="btn btn-success pull-right"
+        onClick={[Function]}
+      >
+         Add Recipe
+      </a>
+      <RecipeModal
+        addRecipe={[Function]}
+        categories={
+          Array [
+            Object {
+              "cat_id": 1,
+              "cat_name": "lorem",
+            },
+          ]
+        }
+        handleChange={[Function]}
+        handleClose={[Function]}
+        handleRecipeUpdate={[Function]}
+        modalTitle="Add Recipe"
+        recipeData={
+          Object {
+            "category": "",
+            "category_rel": "",
+            "ingredients": "",
+            "status": "",
+            "steps": "",
+            "title": "",
+          }
+        }
+        selected=""
+        show={false}
+      >
+        <Modal
+          animation={true}
+          autoFocus={true}
+          backdrop={true}
+          bsClass="modal"
+          dialogComponentClass={[Function]}
+          enforceFocus={true}
+          keyboard={true}
+          manager={
+            ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            }
+          }
+          onHide={[Function]}
+          renderBackdrop={[Function]}
+          restoreFocus={true}
+          show={false}
+        >
+          <Modal
+            autoFocus={true}
+            backdrop={true}
+            backdropClassName="modal-backdrop"
+            backdropTransition={[Function]}
+            containerClassName="modal-open"
+            enforceFocus={true}
+            keyboard={true}
+            manager={
+              ModalManager {
+                "add": [Function],
+                "containers": Array [],
+                "data": Array [],
+                "handleContainerOverflow": true,
+                "hideSiblingNodes": true,
+                "isTopModal": [Function],
+                "modals": Array [],
+                "remove": [Function],
+              }
+            }
+            onEntering={[Function]}
+            onExited={[Function]}
+            onHide={[Function]}
+            renderBackdrop={[Function]}
+            restoreFocus={true}
+            show={false}
+            transition={[Function]}
+          />
+        </Modal>
+      </RecipeModal>
+      <div
+        className="col-xs-7 col-sm-4 pull-right"
+      >
+        <div
+          className="input-group mb-2 mb-sm-0"
+        >
+          <div
+            className="input-group-addon"
+          >
+            Search
+          </div>
+          <input
+            className="form-control"
+            id="search"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            placeholder="Enter your search key words here!"
+            type="text"
+          />
+        </div>
+      </div>
+    </h3>
+    <br />
+    <div>
+      <div>
+        <RecipeTableRows
+          deleteHandler={[Function]}
+          handleEditData={[Function]}
+          id={1}
+          ingredients="Ipsum"
+          key="1"
+          recipe_id={1}
+          title="Lorem"
+        >
+          <div
+            className="col-md-4"
+          >
+            <Thumbnail
+              alt="242x200"
+              bsClass="thumbnail"
+              src="https://mperumpy.sirv.com/Images/brooke-lark-158017.jpg"
+            >
+              <div
+                className="thumbnail"
+              >
+                <img
+                  alt="242x200"
+                  src="https://mperumpy.sirv.com/Images/brooke-lark-158017.jpg"
+                />
+                <div
+                  className="caption"
+                >
+                  <h3>
+                    Lorem
+                  </h3>
+                  <p>
+                    Ipsum...
+                  </p>
+                  <p>
+                    <a
+                      className="btn btn-default"
+                      href="/recipe/1"
+                      id="view"
+                    >
+                      <span
+                        className="fa fa-eye"
+                      >
+                         View
+                      </span>
+                    </a>
+                     
+                    <button
+                      className="btn btn-primary"
+                      id="edit"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-edit"
+                      >
+                         Edit
+                      </span>
+                    </button>
+                     
+                    <button
+                      className="btn btn-danger"
+                      id="delete"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-trash"
+                      >
+                         Delete
+                      </span>
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </Thumbnail>
+          </div>
+        </RecipeTableRows>
+        <Pagination
+          nextPage={[Function]}
+          previousPage={[Function]}
+          recipeData={
+            Object {
+              "categories": Array [
+                Object {
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "deleteRecipe": [Function],
+              "history": Object {
+                "push": [Function],
+              },
+              "loadCategories": [Function],
+              "loadRecipes": [Function],
+              "recipes": Array [
+                Object {
+                  "ingredients": "Ipsum",
+                  "recipe_id": 1,
+                  "title": "Lorem",
+                },
+              ],
+              "str": Object {},
+            }
+          }
+        >
+          <center>
+            <div
+              className="col-xs-12 col-sm-12 pull-right"
+              id="pagination"
+            >
+              <ul
+                className="pagination"
+              >
+                <li>
+                  <a
+                    className="page-link"
+                    id="prevPage"
+                    onClick={[Function]}
+                  >
+                    Previous
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="page-link"
+                    id="nextPage"
+                    onClick={[Function]}
+                  >
+                    Next
+                  </a>
+                  <a
+                    className="page-link"
+                  >
+                    Showing 
+                     of 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </center>
+        </Pagination>
+      </div>
+    </div>
+  </div>
+</RecipesTable>
+`;

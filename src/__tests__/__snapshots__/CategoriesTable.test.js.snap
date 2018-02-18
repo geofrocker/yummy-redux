@@ -1,0 +1,1325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the category Table component  handle deleting the category  1`] = `
+<CategoriesTable
+  catData={
+    Array [
+      Object {
+        "cat_desc": "Ipsum",
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  categories={
+    Array [
+      Object {
+        "cat_desc": "Ipsum",
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  deleteCategory={[Function]}
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+  loadCategories={[Function]}
+  loadRecipes={[Function]}
+  recipes={
+    Array [
+      Object {
+        "ingredients": "Ipsum",
+        "recipe_id": 1,
+        "title": "Lorem",
+      },
+    ]
+  }
+  str={Object {}}
+>
+  <div
+    className="CategoriesTable col-md-9"
+  >
+    <h3>
+       
+      <a
+        className="btn btn-success pull-right"
+        id="addCategory"
+        onClick={[Function]}
+      >
+         Add Category
+      </a>
+      <CategoryModal
+        addCategory={[Function]}
+        catData={
+          Object {
+            "cat_desc": "",
+            "cat_name": "",
+          }
+        }
+        handleCategoryUpdate={[Function]}
+        handleChange={[Function]}
+        handleClose={[Function]}
+        modalTitle="Add Category"
+        show={false}
+      >
+        <Modal
+          animation={true}
+          autoFocus={true}
+          backdrop={true}
+          bsClass="modal"
+          dialogComponentClass={[Function]}
+          enforceFocus={true}
+          keyboard={true}
+          manager={
+            ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            }
+          }
+          onHide={[Function]}
+          renderBackdrop={[Function]}
+          restoreFocus={true}
+          show={false}
+        >
+          <Modal
+            autoFocus={true}
+            backdrop={true}
+            backdropClassName="modal-backdrop"
+            backdropTransition={[Function]}
+            containerClassName="modal-open"
+            enforceFocus={true}
+            keyboard={true}
+            manager={
+              ModalManager {
+                "add": [Function],
+                "containers": Array [],
+                "data": Array [],
+                "handleContainerOverflow": true,
+                "hideSiblingNodes": true,
+                "isTopModal": [Function],
+                "modals": Array [],
+                "remove": [Function],
+              }
+            }
+            onEntering={[Function]}
+            onExited={[Function]}
+            onHide={[Function]}
+            renderBackdrop={[Function]}
+            restoreFocus={true}
+            show={false}
+            transition={[Function]}
+          />
+        </Modal>
+      </CategoryModal>
+      <div
+        className="col-xs-7 col-sm-4 pull-right"
+      >
+        <div
+          className="input-group mb-2 mb-sm-0"
+        >
+          <div
+            className="input-group-addon"
+          >
+            Search
+          </div>
+          <input
+            className="form-control"
+            id="catSearch"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            placeholder="Enter your search key words here!"
+            type="text"
+          />
+        </div>
+      </div>
+    </h3>
+    <br />
+    <div>
+      <div>
+        <Table
+          bordered={false}
+          bsClass="table"
+          className="table table-striped responsive"
+          condensed={false}
+          hover={false}
+          responsive={false}
+          striped={false}
+        >
+          <table
+            className="table table-striped responsive table"
+          >
+            <tbody
+              id="tbody"
+            >
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th>
+                  Title
+                </th>
+                <th>
+                  Category
+                </th>
+                <th>
+                  Author
+                </th>
+                <th>
+                  Date
+                </th>
+                <th>
+                  Actions
+                </th>
+              </tr>
+              <RecipeTableRows
+                cat_desc="Ipsum"
+                cat_id={1}
+                cat_name="lorem"
+                deleteHandler={[Function]}
+                handleEditData={[Function]}
+                id={1}
+                key="1"
+              >
+                <tr>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    lorem
+                  </td>
+                  <td>
+                    Ipsum...
+                  </td>
+                  <td />
+                  <td>
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD/MM/YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                    >
+                      <time
+                        dateTime={"2018-02-18T13:02:42.210Z"}
+                      >
+                        18/02/2018
+                      </time>
+                    </t>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-primary btn-xs"
+                      id="catEdit"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-edit"
+                      >
+                         Edit
+                      </span>
+                    </button>
+                     
+                    <button
+                      className="btn btn-danger btn-xs"
+                      id="catDelete"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-trash"
+                      >
+                         Delete
+                      </span>
+                    </button>
+                  </td>
+                </tr>
+              </RecipeTableRows>
+            </tbody>
+          </table>
+        </Table>
+        <Pagination
+          categoryData={
+            Object {
+              "catData": Array [
+                Object {
+                  "cat_desc": "Ipsum",
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "categories": Array [
+                Object {
+                  "cat_desc": "Ipsum",
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "deleteCategory": [Function],
+              "history": Object {
+                "push": [Function],
+              },
+              "loadCategories": [Function],
+              "loadRecipes": [Function],
+              "recipes": Array [
+                Object {
+                  "ingredients": "Ipsum",
+                  "recipe_id": 1,
+                  "title": "Lorem",
+                },
+              ],
+              "str": Object {},
+            }
+          }
+          nextPage={[Function]}
+          previousPage={[Function]}
+        >
+          <center>
+            <div
+              className="col-xs-12 col-sm-12"
+              id="pagination"
+            >
+              <ul
+                className="pagination"
+              >
+                <li>
+                  <a
+                    className="page-link"
+                    id="catPrevPage"
+                    onClick={[Function]}
+                  >
+                    Previous
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="page-link"
+                    id="catNextPage"
+                    onClick={[Function]}
+                  >
+                    Next
+                  </a>
+                  <a
+                    className="page-link"
+                  >
+                    Showing 
+                     of 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </center>
+        </Pagination>
+      </div>
+    </div>
+  </div>
+</CategoriesTable>
+`;
+
+exports[`the category Table component  handle going back to  category previous page  1`] = `
+<CategoriesTable
+  catData={
+    Array [
+      Object {
+        "cat_desc": "Ipsum",
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  categories={
+    Array [
+      Object {
+        "cat_desc": "Ipsum",
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  deleteCategory={[Function]}
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+  loadCategories={[Function]}
+  loadRecipes={[Function]}
+  recipes={
+    Array [
+      Object {
+        "ingredients": "Ipsum",
+        "recipe_id": 1,
+        "title": "Lorem",
+      },
+    ]
+  }
+  str={Object {}}
+>
+  <div
+    className="CategoriesTable col-md-9"
+  >
+    <h3>
+       
+      <a
+        className="btn btn-success pull-right"
+        id="addCategory"
+        onClick={[Function]}
+      >
+         Add Category
+      </a>
+      <CategoryModal
+        addCategory={[Function]}
+        catData={
+          Object {
+            "cat_desc": "",
+            "cat_name": "",
+          }
+        }
+        handleCategoryUpdate={[Function]}
+        handleChange={[Function]}
+        handleClose={[Function]}
+        modalTitle="Add Category"
+        show={false}
+      >
+        <Modal
+          animation={true}
+          autoFocus={true}
+          backdrop={true}
+          bsClass="modal"
+          dialogComponentClass={[Function]}
+          enforceFocus={true}
+          keyboard={true}
+          manager={
+            ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            }
+          }
+          onHide={[Function]}
+          renderBackdrop={[Function]}
+          restoreFocus={true}
+          show={false}
+        >
+          <Modal
+            autoFocus={true}
+            backdrop={true}
+            backdropClassName="modal-backdrop"
+            backdropTransition={[Function]}
+            containerClassName="modal-open"
+            enforceFocus={true}
+            keyboard={true}
+            manager={
+              ModalManager {
+                "add": [Function],
+                "containers": Array [],
+                "data": Array [],
+                "handleContainerOverflow": true,
+                "hideSiblingNodes": true,
+                "isTopModal": [Function],
+                "modals": Array [],
+                "remove": [Function],
+              }
+            }
+            onEntering={[Function]}
+            onExited={[Function]}
+            onHide={[Function]}
+            renderBackdrop={[Function]}
+            restoreFocus={true}
+            show={false}
+            transition={[Function]}
+          />
+        </Modal>
+      </CategoryModal>
+      <div
+        className="col-xs-7 col-sm-4 pull-right"
+      >
+        <div
+          className="input-group mb-2 mb-sm-0"
+        >
+          <div
+            className="input-group-addon"
+          >
+            Search
+          </div>
+          <input
+            className="form-control"
+            id="catSearch"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            placeholder="Enter your search key words here!"
+            type="text"
+          />
+        </div>
+      </div>
+    </h3>
+    <br />
+    <div>
+      <div>
+        <Table
+          bordered={false}
+          bsClass="table"
+          className="table table-striped responsive"
+          condensed={false}
+          hover={false}
+          responsive={false}
+          striped={false}
+        >
+          <table
+            className="table table-striped responsive table"
+          >
+            <tbody
+              id="tbody"
+            >
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th>
+                  Title
+                </th>
+                <th>
+                  Category
+                </th>
+                <th>
+                  Author
+                </th>
+                <th>
+                  Date
+                </th>
+                <th>
+                  Actions
+                </th>
+              </tr>
+              <RecipeTableRows
+                cat_desc="Ipsum"
+                cat_id={1}
+                cat_name="lorem"
+                deleteHandler={[Function]}
+                handleEditData={[Function]}
+                id={1}
+                key="1"
+              >
+                <tr>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    lorem
+                  </td>
+                  <td>
+                    Ipsum...
+                  </td>
+                  <td />
+                  <td>
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD/MM/YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                    >
+                      <time
+                        dateTime={"2018-02-18T13:02:42.210Z"}
+                      >
+                        18/02/2018
+                      </time>
+                    </t>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-primary btn-xs"
+                      id="catEdit"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-edit"
+                      >
+                         Edit
+                      </span>
+                    </button>
+                     
+                    <button
+                      className="btn btn-danger btn-xs"
+                      id="catDelete"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-trash"
+                      >
+                         Delete
+                      </span>
+                    </button>
+                  </td>
+                </tr>
+              </RecipeTableRows>
+            </tbody>
+          </table>
+        </Table>
+        <Pagination
+          categoryData={
+            Object {
+              "catData": Array [
+                Object {
+                  "cat_desc": "Ipsum",
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "categories": Array [
+                Object {
+                  "cat_desc": "Ipsum",
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "deleteCategory": [Function],
+              "history": Object {
+                "push": [Function],
+              },
+              "loadCategories": [Function],
+              "loadRecipes": [Function],
+              "recipes": Array [
+                Object {
+                  "ingredients": "Ipsum",
+                  "recipe_id": 1,
+                  "title": "Lorem",
+                },
+              ],
+              "str": Object {},
+            }
+          }
+          nextPage={[Function]}
+          previousPage={[Function]}
+        >
+          <center>
+            <div
+              className="col-xs-12 col-sm-12"
+              id="pagination"
+            >
+              <ul
+                className="pagination"
+              >
+                <li>
+                  <a
+                    className="page-link"
+                    id="catPrevPage"
+                    onClick={[Function]}
+                  >
+                    Previous
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="page-link"
+                    id="catNextPage"
+                    onClick={[Function]}
+                  >
+                    Next
+                  </a>
+                  <a
+                    className="page-link"
+                  >
+                    Showing 
+                     of 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </center>
+        </Pagination>
+      </div>
+    </div>
+  </div>
+</CategoriesTable>
+`;
+
+exports[`the category Table component  handle going back to next category page  1`] = `
+<CategoriesTable
+  catData={
+    Array [
+      Object {
+        "cat_desc": "Ipsum",
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  categories={
+    Array [
+      Object {
+        "cat_desc": "Ipsum",
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  deleteCategory={[Function]}
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+  loadCategories={[Function]}
+  loadRecipes={[Function]}
+  recipes={
+    Array [
+      Object {
+        "ingredients": "Ipsum",
+        "recipe_id": 1,
+        "title": "Lorem",
+      },
+    ]
+  }
+  str={Object {}}
+>
+  <div
+    className="CategoriesTable col-md-9"
+  >
+    <h3>
+       
+      <a
+        className="btn btn-success pull-right"
+        id="addCategory"
+        onClick={[Function]}
+      >
+         Add Category
+      </a>
+      <CategoryModal
+        addCategory={[Function]}
+        catData={
+          Object {
+            "cat_desc": "",
+            "cat_name": "",
+          }
+        }
+        handleCategoryUpdate={[Function]}
+        handleChange={[Function]}
+        handleClose={[Function]}
+        modalTitle="Add Category"
+        show={false}
+      >
+        <Modal
+          animation={true}
+          autoFocus={true}
+          backdrop={true}
+          bsClass="modal"
+          dialogComponentClass={[Function]}
+          enforceFocus={true}
+          keyboard={true}
+          manager={
+            ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            }
+          }
+          onHide={[Function]}
+          renderBackdrop={[Function]}
+          restoreFocus={true}
+          show={false}
+        >
+          <Modal
+            autoFocus={true}
+            backdrop={true}
+            backdropClassName="modal-backdrop"
+            backdropTransition={[Function]}
+            containerClassName="modal-open"
+            enforceFocus={true}
+            keyboard={true}
+            manager={
+              ModalManager {
+                "add": [Function],
+                "containers": Array [],
+                "data": Array [],
+                "handleContainerOverflow": true,
+                "hideSiblingNodes": true,
+                "isTopModal": [Function],
+                "modals": Array [],
+                "remove": [Function],
+              }
+            }
+            onEntering={[Function]}
+            onExited={[Function]}
+            onHide={[Function]}
+            renderBackdrop={[Function]}
+            restoreFocus={true}
+            show={false}
+            transition={[Function]}
+          />
+        </Modal>
+      </CategoryModal>
+      <div
+        className="col-xs-7 col-sm-4 pull-right"
+      >
+        <div
+          className="input-group mb-2 mb-sm-0"
+        >
+          <div
+            className="input-group-addon"
+          >
+            Search
+          </div>
+          <input
+            className="form-control"
+            id="catSearch"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            placeholder="Enter your search key words here!"
+            type="text"
+          />
+        </div>
+      </div>
+    </h3>
+    <br />
+    <div>
+      <div>
+        <Table
+          bordered={false}
+          bsClass="table"
+          className="table table-striped responsive"
+          condensed={false}
+          hover={false}
+          responsive={false}
+          striped={false}
+        >
+          <table
+            className="table table-striped responsive table"
+          >
+            <tbody
+              id="tbody"
+            >
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th>
+                  Title
+                </th>
+                <th>
+                  Category
+                </th>
+                <th>
+                  Author
+                </th>
+                <th>
+                  Date
+                </th>
+                <th>
+                  Actions
+                </th>
+              </tr>
+              <RecipeTableRows
+                cat_desc="Ipsum"
+                cat_id={1}
+                cat_name="lorem"
+                deleteHandler={[Function]}
+                handleEditData={[Function]}
+                id={1}
+                key="1"
+              >
+                <tr>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    lorem
+                  </td>
+                  <td>
+                    Ipsum...
+                  </td>
+                  <td />
+                  <td>
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD/MM/YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                    >
+                      <time
+                        dateTime={"2018-02-18T13:02:42.210Z"}
+                      >
+                        18/02/2018
+                      </time>
+                    </t>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-primary btn-xs"
+                      id="catEdit"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-edit"
+                      >
+                         Edit
+                      </span>
+                    </button>
+                     
+                    <button
+                      className="btn btn-danger btn-xs"
+                      id="catDelete"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-trash"
+                      >
+                         Delete
+                      </span>
+                    </button>
+                  </td>
+                </tr>
+              </RecipeTableRows>
+            </tbody>
+          </table>
+        </Table>
+        <Pagination
+          categoryData={
+            Object {
+              "catData": Array [
+                Object {
+                  "cat_desc": "Ipsum",
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "categories": Array [
+                Object {
+                  "cat_desc": "Ipsum",
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "deleteCategory": [Function],
+              "history": Object {
+                "push": [Function],
+              },
+              "loadCategories": [Function],
+              "loadRecipes": [Function],
+              "recipes": Array [
+                Object {
+                  "ingredients": "Ipsum",
+                  "recipe_id": 1,
+                  "title": "Lorem",
+                },
+              ],
+              "str": Object {},
+            }
+          }
+          nextPage={[Function]}
+          previousPage={[Function]}
+        >
+          <center>
+            <div
+              className="col-xs-12 col-sm-12"
+              id="pagination"
+            >
+              <ul
+                className="pagination"
+              >
+                <li>
+                  <a
+                    className="page-link"
+                    id="catPrevPage"
+                    onClick={[Function]}
+                  >
+                    Previous
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="page-link"
+                    id="catNextPage"
+                    onClick={[Function]}
+                  >
+                    Next
+                  </a>
+                  <a
+                    className="page-link"
+                  >
+                    Showing 
+                     of 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </center>
+        </Pagination>
+      </div>
+    </div>
+  </div>
+</CategoriesTable>
+`;
+
+exports[`the category Table component  handles category search feature  1`] = `
+<CategoriesTable
+  catData={
+    Array [
+      Object {
+        "cat_desc": "Ipsum",
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  categories={
+    Array [
+      Object {
+        "cat_desc": "Ipsum",
+        "cat_id": 1,
+        "cat_name": "lorem",
+      },
+    ]
+  }
+  deleteCategory={[Function]}
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+  loadCategories={[Function]}
+  loadRecipes={[Function]}
+  recipes={
+    Array [
+      Object {
+        "ingredients": "Ipsum",
+        "recipe_id": 1,
+        "title": "Lorem",
+      },
+    ]
+  }
+  str={Object {}}
+>
+  <div
+    className="CategoriesTable col-md-9"
+  >
+    <h3>
+       
+      <a
+        className="btn btn-success pull-right"
+        id="addCategory"
+        onClick={[Function]}
+      >
+         Add Category
+      </a>
+      <CategoryModal
+        addCategory={[Function]}
+        catData={
+          Object {
+            "cat_desc": "",
+            "cat_name": "",
+          }
+        }
+        handleCategoryUpdate={[Function]}
+        handleChange={[Function]}
+        handleClose={[Function]}
+        modalTitle="Add Category"
+        show={false}
+      >
+        <Modal
+          animation={true}
+          autoFocus={true}
+          backdrop={true}
+          bsClass="modal"
+          dialogComponentClass={[Function]}
+          enforceFocus={true}
+          keyboard={true}
+          manager={
+            ModalManager {
+              "add": [Function],
+              "containers": Array [],
+              "data": Array [],
+              "handleContainerOverflow": true,
+              "hideSiblingNodes": true,
+              "isTopModal": [Function],
+              "modals": Array [],
+              "remove": [Function],
+            }
+          }
+          onHide={[Function]}
+          renderBackdrop={[Function]}
+          restoreFocus={true}
+          show={false}
+        >
+          <Modal
+            autoFocus={true}
+            backdrop={true}
+            backdropClassName="modal-backdrop"
+            backdropTransition={[Function]}
+            containerClassName="modal-open"
+            enforceFocus={true}
+            keyboard={true}
+            manager={
+              ModalManager {
+                "add": [Function],
+                "containers": Array [],
+                "data": Array [],
+                "handleContainerOverflow": true,
+                "hideSiblingNodes": true,
+                "isTopModal": [Function],
+                "modals": Array [],
+                "remove": [Function],
+              }
+            }
+            onEntering={[Function]}
+            onExited={[Function]}
+            onHide={[Function]}
+            renderBackdrop={[Function]}
+            restoreFocus={true}
+            show={false}
+            transition={[Function]}
+          />
+        </Modal>
+      </CategoryModal>
+      <div
+        className="col-xs-7 col-sm-4 pull-right"
+      >
+        <div
+          className="input-group mb-2 mb-sm-0"
+        >
+          <div
+            className="input-group-addon"
+          >
+            Search
+          </div>
+          <input
+            className="form-control"
+            id="catSearch"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            placeholder="Enter your search key words here!"
+            type="text"
+          />
+        </div>
+      </div>
+    </h3>
+    <br />
+    <div>
+      <div>
+        <Table
+          bordered={false}
+          bsClass="table"
+          className="table table-striped responsive"
+          condensed={false}
+          hover={false}
+          responsive={false}
+          striped={false}
+        >
+          <table
+            className="table table-striped responsive table"
+          >
+            <tbody
+              id="tbody"
+            >
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th>
+                  Title
+                </th>
+                <th>
+                  Category
+                </th>
+                <th>
+                  Author
+                </th>
+                <th>
+                  Date
+                </th>
+                <th>
+                  Actions
+                </th>
+              </tr>
+              <RecipeTableRows
+                cat_desc="Ipsum"
+                cat_id={1}
+                cat_name="lorem"
+                deleteHandler={[Function]}
+                handleEditData={[Function]}
+                id={1}
+                key="1"
+              >
+                <tr>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    lorem
+                  </td>
+                  <td>
+                    Ipsum...
+                  </td>
+                  <td />
+                  <td>
+                    <t
+                      ago={false}
+                      calendar={false}
+                      decimal={false}
+                      element="time"
+                      filter={[Function]}
+                      format="DD/MM/YYYY"
+                      fromNow={false}
+                      interval={60000}
+                      onChange={[Function]}
+                      toNow={false}
+                      unit={null}
+                      unix={false}
+                      utc={false}
+                    >
+                      <time
+                        dateTime={"2018-02-18T13:02:42.210Z"}
+                      >
+                        18/02/2018
+                      </time>
+                    </t>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-primary btn-xs"
+                      id="catEdit"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-edit"
+                      >
+                         Edit
+                      </span>
+                    </button>
+                     
+                    <button
+                      className="btn btn-danger btn-xs"
+                      id="catDelete"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="fa fa-trash"
+                      >
+                         Delete
+                      </span>
+                    </button>
+                  </td>
+                </tr>
+              </RecipeTableRows>
+            </tbody>
+          </table>
+        </Table>
+        <Pagination
+          categoryData={
+            Object {
+              "catData": Array [
+                Object {
+                  "cat_desc": "Ipsum",
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "categories": Array [
+                Object {
+                  "cat_desc": "Ipsum",
+                  "cat_id": 1,
+                  "cat_name": "lorem",
+                },
+              ],
+              "deleteCategory": [Function],
+              "history": Object {
+                "push": [Function],
+              },
+              "loadCategories": [Function],
+              "loadRecipes": [Function],
+              "recipes": Array [
+                Object {
+                  "ingredients": "Ipsum",
+                  "recipe_id": 1,
+                  "title": "Lorem",
+                },
+              ],
+              "str": Object {},
+            }
+          }
+          nextPage={[Function]}
+          previousPage={[Function]}
+        >
+          <center>
+            <div
+              className="col-xs-12 col-sm-12"
+              id="pagination"
+            >
+              <ul
+                className="pagination"
+              >
+                <li>
+                  <a
+                    className="page-link"
+                    id="catPrevPage"
+                    onClick={[Function]}
+                  >
+                    Previous
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="page-link"
+                    id="catNextPage"
+                    onClick={[Function]}
+                  >
+                    Next
+                  </a>
+                  <a
+                    className="page-link"
+                  >
+                    Showing 
+                     of 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </center>
+        </Pagination>
+      </div>
+    </div>
+  </div>
+</CategoriesTable>
+`;
