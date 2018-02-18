@@ -1,5 +1,6 @@
 # Yummy-Recipes web app with react-redux
 [![Build Status](https://travis-ci.org/geofrocker/yummy-redux.svg?branch=develop)](https://travis-ci.org/geofrocker/yummy-redux)
+[![Coverage Status](https://coveralls.io/repos/github/geofrocker/yummy-redux/badge.svg?branch=develop)](https://coveralls.io/github/geofrocker/yummy-redux?branch=develop)
 
 ## Description
 Yummy recipies is a web app built in python using flask framework
