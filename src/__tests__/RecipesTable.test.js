@@ -1,6 +1,6 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { RecipesTable } from '../components/dashboard/recipesTab/RecipesTable';
 import toJson from 'enzyme-to-json';
 
@@ -14,9 +14,6 @@ describe('the Recipe Table component', () => {
     recipes: [{ recipe_id: 1, title: 'Lorem', ingredients: 'Ipsum' }],
     loadRecipes: () => Promise.resolve(),
     loadCategories: () => Promise.resolve(),
-    // loadRecipe: () => Promise.resolve(),
-    // addRecipe: () => Promise.resolve(),
-    // updateRecipe: () => Promise.resolve(),
     deleteRecipe: () => Promise.resolve(),
 
   };
@@ -70,11 +67,6 @@ describe('the Recipe Table component', () => {
     wrapper.find('#search').simulate('click');
     expect(toJson(wrapper)).toMatchSnapshot();
   });
-
-  // it(' handle editing the recipe ', () => {
-  //   wrapper.find('#edit').simulate('click', { preventDefault });
-  //   expect(toJson(wrapper)).toMatchSnapshot();
-  // });
 
   it(' handle deleting the recipe ', () => {
     wrapper.find('#delete').simulate('click');
