@@ -133,7 +133,7 @@ export class RecipesTable extends Component{
     }
     return(
       <div className="RecipesTable">
-        <h3>&nbsp;<a onClick={this.handleShow} className="btn btn-success pull-right"> Add Recipe</a>
+        <h3>&nbsp;<a onClick={this.handleShow} className="btn btn-success pull-right" id="addRecipe"> Add Recipe</a>
         <RecipeModal handleClose={this.handleClose} show={this.state.show} selected={this.state.selected} recipeData={this.state.recipeData} message={this.props.message} categories={this.props.categories} modalTitle={this.state.modalTitle} handleChange={this.handeChange} handleRecipeUpdate={this.handleRecipeUpdate} addRecipe={this.addRecipe}/>
             <div className="col-xs-7 col-sm-4 pull-right">
                 <div className="input-group mb-2 mb-sm-0">

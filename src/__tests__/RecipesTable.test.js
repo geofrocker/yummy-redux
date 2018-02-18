@@ -26,10 +26,15 @@ describe('the Recipe Table component', () => {
 
   it('renders the Modal', () => {
     expect(wrapper.find('Modal')).toHaveLength(2);
+    expect(wrapper.find('#addRecipe')).toHaveLength(1);
   });
 
   it('renders the Recipe table rows', () => {
     expect(wrapper.find('RecipeTableRows')).toHaveLength(1);
+  });
+
+  it('renders the Recipe table rows', () => {
+    expect(wrapper.find('Thumbnail')).toHaveLength(1);
   });
 
   it('renders the Pagination', () => {

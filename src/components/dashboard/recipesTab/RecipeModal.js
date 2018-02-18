@@ -44,7 +44,7 @@ const RecipeModal = (props) => {
             <option value="public">Public</option>
             <option value="private">Private</option>
           </select>* required<br /><br />
-          <input type="submit" className="btn btn-primary" value="Submit" />&nbsp;
+          <input type="submit" className="btn btn-primary" id="addRecipe" value="Submit" />&nbsp;
           <Button onClick={props.handleClose} className="btn btn-success">Cancel</Button>
         </form>
       </Modal.Body>

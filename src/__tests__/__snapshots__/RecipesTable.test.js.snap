@@ -36,6 +36,7 @@ exports[`the Recipe Table component  handle deleting the recipe  1`] = `
        
       <a
         className="btn btn-success pull-right"
+        id="addRecipe"
         onClick={[Function]}
       >
          Add Recipe
@@ -328,6 +329,7 @@ exports[`the Recipe Table component  handle going back to next page  1`] = `
        
       <a
         className="btn btn-success pull-right"
+        id="addRecipe"
         onClick={[Function]}
       >
          Add Recipe
@@ -620,6 +622,7 @@ exports[`the Recipe Table component  handle going back to previous page  1`] = `
        
       <a
         className="btn btn-success pull-right"
+        id="addRecipe"
         onClick={[Function]}
       >
          Add Recipe
@@ -912,6 +915,7 @@ exports[`the Recipe Table component  handles search feature  1`] = `
        
       <a
         className="btn btn-success pull-right"
+        id="addRecipe"
         onClick={[Function]}
       >
          Add Recipe
