@@ -22,3 +22,4 @@ yarn-error.log*
 public/css/bootstrap.min.css
 public/css/mdb.min.css
 yarn.lock
+src/__tests__/__snapshots__
