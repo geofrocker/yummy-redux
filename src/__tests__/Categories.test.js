@@ -43,4 +43,11 @@ describe('the category Table component', () => {
     expect(wrapper.find('.pagination')).toHaveLength(1);
     expect(wrapper.find('.page-link')).toHaveLength(3);
   });
+
+  it(' handles clicks ', () => {
+    expect(wrapper.find('#catPrevPage').simulate('click'));
+    expect(wrapper.find('#catNextPage').simulate('click'));
+    expect(wrapper.find('#catSearch').simulate('click'));
+    expect(wrapper.find('#catDelete').simulate('click'));
+  });
 });

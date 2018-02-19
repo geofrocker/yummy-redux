@@ -26,6 +26,24 @@ describe('Async Actions', () => {
     store.dispatch(registerActions.register()).then(() => {
       const actions = store.getActions();
       expect(actions[0].type).toEqual(types.BEGIN_AJAX_CALL);
+      expect(actions[1].type).toEqual(types.REGISTER_SUCCESS);
+      done();
+    });
+  });
+
+  it('should create BEGIN_AJAX_CALL and REGISTER_FAIL when registration fails', (done) => {
+    done();
+    nock('https://yummy-api.herokuapp.com/auth/register').post('', {}).reply(201, { Message: '' });
+    const expectedActions = [
+      { type: types.BEGIN_AJAX_CALL },
+      { type: types.REGISTER_FAIL, body: { message: 'An error occured' } },
+    ];
+
+    const store = mockStore({ message: '' }, expectedActions);
+    store.dispatch(registerActions.register()).then(() => {
+      const actions = store.getActions();
+      expect(actions[0].type).toEqual(types.BEGIN_AJAX_CALL);
+      expect(actions[1].type).toEqual(types.REGISTER_FAIL);
       done();
     });
   });
@@ -47,6 +65,8 @@ describe('Async Actions', () => {
     store.dispatch(loginActions.login()).then(() => {
       const actions = store.getActions();
       expect(actions[0].type).toEqual(types.BEGIN_AJAX_CALL);
+      expect(actions[0].type).toEqual(types.LOGIN_SUCCESS);
+      expect(actions[0].type).toEqual(types.LOGIN_FAIL);
     });
   });
 });
