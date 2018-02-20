@@ -4,8 +4,9 @@ import Since from 'react-since';
 const Recipes = props =>
   (<div className="jumbotron">
     <h3>{props.title}</h3>
-    <em>Added by <span className="fa fa-user" /> { props.author } about <span className="fa fa-calendar" /> <Since date={props.create_date} /> | Category: { props.category_rel}
-      <a href={`/recipe/${props.recipe_id}`} id="review" className="btn btn-primary pull-right">Review</a>
+    <em>Added by <span className="fa fa-user" /> { props.author } about <span className="fa fa-calendar" /> 
+    <Since date={props.create_date} /> | Category: { props.category_rel}
+    <a href={`/recipe/${props.recipe_id}`} id="review" className="btn btn-primary pull-right">Review</a>
     </em>
 
     <div>

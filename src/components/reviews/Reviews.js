@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import {loadRecipe, loadReviews, upvoteRecipe, createReview} from '../../actions/recipesActions'
 import Since from 'react-since';

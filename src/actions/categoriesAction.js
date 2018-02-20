@@ -2,12 +2,12 @@ import * as types from './actionTypes';
 import url, { http } from '../config';
 import { beginAjaxCall } from './ajaxStatusActions';
 
-export function loadCategoriesSuccess(data) {
-  return { type: types.LOAD_CATEGORIES_SUCCESS, data };
-}
-export function loadCategoriesFail(message) {
-  return { type: types.LOAD_CATEGORIES_FAIL, message };
-}
+export const loadCategoriesSuccess = data => (
+  { type: types.LOAD_CATEGORIES_SUCCESS, data }
+);
+export const loadCategoriesFail = message => (
+  { type: types.LOAD_CATEGORIES_FAIL, message }
+);
 
 export function loadCategories(categoriesUrl) {
   return function (dispatch) {

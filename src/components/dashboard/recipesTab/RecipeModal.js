@@ -5,9 +5,7 @@ const Categories = props =>
   <option value={props.cat_id}>{props.cat_name}</option>;
 
 const RecipeModal = (props) => {
-  const {
-    modalTitle, selected, recipeData, handleChange, categories,
-  } = props;
+  const {modalTitle, selected, recipeData, handleChange, categories,} = props;
   return (
     <Modal show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>

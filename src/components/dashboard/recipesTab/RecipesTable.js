@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import {loadRecipes, loadRecipe, loadCategories, updateRecipe, deleteRecipe, addRecipe} from '../../../actions/recipesActions'
 import url from '../../../config'
@@ -67,7 +66,7 @@ export class RecipesTable extends Component{
   }
 
   handleClose = () =>{
-    this.setState({ show: false });
+    this.setState({ show: false, modalTitle:'Add Recipe'});
   }
   handleEditData = (id) =>{
     this.props.loadRecipe(id).then(() =>{

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import { BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 import {Navbar, MenuItem, NavDropdown, Nav, NavItem} from 'react-bootstrap';
@@ -11,7 +10,6 @@ import Dashboard from './dashboard/Dashboard'
 import ErrorBoundaryAppContainer from '../components/ErrorBoundary';
 import Review from './reviews/Reviews'
 import NotFound from './notFound/NotFound'
-import {Redirect} from 'react-router-dom'
 
 export class App extends Component {
     constructor(props){

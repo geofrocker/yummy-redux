@@ -16,7 +16,6 @@ export function register(userData) {
       .then((response) => {
         dispatch(registerSuccess(response.data.Message));
       }).catch((xhr) => {
-        // console.log(xhr)
         dispatch(registerFails(xhr));
         throw (xhr);
       });

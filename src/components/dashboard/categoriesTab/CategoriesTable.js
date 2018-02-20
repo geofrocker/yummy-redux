@@ -32,7 +32,7 @@ export class CategoriesTable extends Component {
   }
 
   handleClose = () =>{
-    this.setState({show:false, catData:{cat_name:'',cat_desc:''}})
+    this.setState({show:false, catData:{cat_name:'',cat_desc:'', modalTitle:'Add Category'}})
   }
 
   handleChange = (e) =>{
@@ -133,10 +133,11 @@ export class CategoriesTable extends Component {
   }
 }
   render() {
+    const {catData,show, modalTitle, categories, q} = this.state
     return (
       <div className="CategoriesTable col-md-9">
         <h3>&nbsp;<a onClick={this.handleShow} className="btn btn-success pull-right" id="addCategory"> Add Category</a>
-        <CategoryModal handleClose={this.handleClose} catData = {this.state.catData} show={this.state.show} message={this.props.message} modalTitle={this.state.modalTitle} handleChange={this.handleChange} handleCategoryUpdate={this.handleCategoryUpdate} addCategory={this.addCategory}/>
+        <CategoryModal handleClose={this.handleClose} catData = {catData} show={show} message={this.props.message} modalTitle={modalTitle} handleChange={this.handleChange} handleCategoryUpdate={this.handleCategoryUpdate} addCategory={this.addCategory}/>
           <div className="col-xs-7 col-sm-4 pull-right">
             <div className="input-group mb-2 mb-sm-0">
               <div className="input-group-addon">Search</div>
@@ -147,7 +148,7 @@ export class CategoriesTable extends Component {
         {this.props.loading
           ? <center id="loader"><i className="fa fa-spinner fa-pulse fa-4x fa-fw" /></center>
           : <div>
-            {this.state.categories.length > 0
+            {categories.length > 0
               ? <div>
                 <Table className="table table-striped responsive">
                   <tbody id="tbody">
@@ -160,9 +161,9 @@ export class CategoriesTable extends Component {
                       <th>Actions</th>
                     </tr>
 
-                    {!this.state.q?this.props.categories.map((category, index) =>
+                    {!q?this.props.categories.map((category, index) =>
                       <CategoryTableRows id={index + 1} key={category.cat_id}{...category} deleteHandler={this.deleteHandler} handleEditData={this.handleEditData} />)
-                    :this.state.categories.map((category, index) =>
+                    :categories.map((category, index) =>
                     <CategoryTableRows id={index + 1} key={category.cat_id}{...category} deleteHandler={this.deleteHandler} handleEditData={this.handleEditData} />)
                     }
                   </tbody>
