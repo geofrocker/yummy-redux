@@ -45,6 +45,7 @@ export class Register extends Component {
             })
         }).catch(error =>{
             return this.setState(() =>{
+                console.log(this.state.userData)
                 return{
                     color:'col-xs-11 alert alert-danger',
                     message:error.response?error.response.data.Message:'An Error occurred, Try again',
