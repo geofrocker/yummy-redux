@@ -48,8 +48,7 @@ export class Register extends Component {
                 console.log(this.state.userData)
                 return{
                     color:'col-xs-11 alert alert-danger',
-                    message:error.response?error.response.data.Message:'An Error occurred, Try again',
-                    userData:{password:'',cpassword:''}
+                    message:error.response?error.response.data.Message:'An Error occurred, Try again'
                 };
             });
         });
