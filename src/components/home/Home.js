@@ -5,6 +5,7 @@ import toastr from 'toastr'
 import { loadRecipes} from '../../actions/recipesActions'
 import Recipes from './Recipes'
 import url from '../../config'
+import {debounce} from 'lodash'
 export class Home extends Component {
     constructor(props){
         super(props);
@@ -34,10 +35,11 @@ export class Home extends Component {
     };
 
     // Handle the search functionality
-    handleSearch = (event) => {
-        event.preventDefault();
-        this.setState({showMessage:false,q: event.target.value,page:1});
-        if(this.state.q){
+    
+    handleSearch = debounce((q) => {
+        this.setState({showMessage:false,q: q,page:1});
+        q=q.trim()
+        if(q.trim().length>=3){
             let localurl = url +'?q='+this.state.q+'&page='+this.state.page
             this.props.loadRecipes(localurl)
             .catch(xhr =>{
@@ -45,20 +47,8 @@ export class Home extends Component {
                     showMessage:true
                 })
             })
-        }else{
-            let localurl = url +'?page='+this.state.page
-            this.props.loadRecipes(localurl).then(() =>{
-                this.setState({
-                    showMessage:false
-                })
-            })
         }
-        if(this.props.recipes.length===0){
-            this.setState({
-                showMessage:true
-            })
-        }
-    }
+    },500)
     render(){
         const {page, recipes, disableNext, disablePrevious, total_pages, loading}=this.props
         if(this.state.redirect){
@@ -92,7 +82,7 @@ export class Home extends Component {
                 <div className="col-xs-12 col-sm-6 pull-right">
                     <div className="input-group mb-2 mb-sm-0">
                         <div className="input-group-addon">Search</div>
-                        <input type="text" id="search" className="form-control" onChange={this.handleSearch} onKeyUp={this.handleSearch} placeholder="Enter your search key words here!"/>
+                        <input type="text" id="search" className="form-control" onChange={e=>this.handleSearch(e.target.value)} onChange={e=>this.handleSearch(e.target.value)} placeholder="Enter your search key words here!"/>
                     </div>
                 </div>
             {loading?<center id="loader-recipes"><i className="fa fa-spinner fa-pulse fa-4x fa-fw"></i></center>

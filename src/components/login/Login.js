@@ -11,11 +11,21 @@ export class Login extends Component {
     this.state={
         userData:{username:'',password:''},
         message:'',
-        redirect:false
+        redirect:false,
+        class:"form-control"
     }
     
   }
-
+  handleMyText = (event) => {
+    let val = event.target.value
+    console.log(val,this.state.class, val.length)
+    if(val.length>3 && this.state.redirect==false){
+      this.setState({class:'form-control mytext'})
+      event.target.value=""
+    }else{
+      this.setState({class:'form-control'})
+    }
+  }
   handleChange = (event) => {
     const field = event.target.name
     let userData = this.state.userData
@@ -51,6 +61,7 @@ export class Login extends Component {
       return (
           <div className="Login">
               <h1>Please sign in</h1>
+              <input type="text" class={this.state.class} onChange={this.handleMyText}/><hr/>
               {message
                   ? <div className="alert alert-danger col-xs-11">{message}</div>
                   : <div></div> 
